@@ -187,7 +187,7 @@ nav ul.nav-menu li ul.dropdown-menu {
   }
 }
 
-/* Popup */
+/* Popup / tooltip */
 .card .popup {
   display: none;
   position: absolute;
@@ -241,7 +241,26 @@ footer a:hover {
 }
 
 /* =========================================
-   MOBILE FIXES (CRITICAL)
+   HEADER IMAGES FIXES FOR MOBILE
+========================================= */
+.top-header-img,
+.vision-header,
+.policy-header,
+.team-header,
+.contact-header,
+.blog-header,
+.business-header,
+.corporate-header,
+.faq-header,
+.glossary-header {
+  width: 100%;
+  height: auto;
+  display: block !important;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   MOBILE FIXES
 ========================================= */
 @media (max-width: 768px) {
 
@@ -297,17 +316,6 @@ footer a:hover {
   .dropdown-menu li a {
     padding: 8px 12px;
     font-size: 0.9rem;
-  }
-
-  /* Header images ALWAYS visible */
-  .top-header-img,
-  .vision-header,
-  .policy-header,
-  .team-header {
-    display: block !important;
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
   }
 
   /* Mobile card popup becomes stacked */

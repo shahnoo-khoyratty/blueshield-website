@@ -187,7 +187,7 @@ nav ul.nav-menu li ul.dropdown-menu {
   }
 }
 
-/* Popup / tooltip */
+/* Popup for cards */
 .card .popup {
   display: none;
   position: absolute;
@@ -241,26 +241,7 @@ footer a:hover {
 }
 
 /* =========================================
-   HEADER IMAGES FIXES FOR MOBILE
-========================================= */
-.top-header-img,
-.vision-header,
-.policy-header,
-.team-header,
-.contact-header,
-.blog-header,
-.business-header,
-.corporate-header,
-.faq-header,
-.glossary-header {
-  width: 100%;
-  height: auto;
-  display: block !important;
-  margin-bottom: 20px;
-}
-
-/* =========================================
-   MOBILE FIXES
+   MOBILE STYLES
 ========================================= */
 @media (max-width: 768px) {
 
@@ -287,38 +268,69 @@ footer a:hover {
     max-height: 48px;
   }
 
-  /* Mobile navigation layout */
+  /* Burger menu */
+  .burger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
   .nav-menu {
-    width: 100%;
+    display: none; /* hidden by default, shown by burger click */
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
     gap: 6px;
+    background: #f8fbff;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .nav-menu.show {
+    display: flex;
   }
 
   .nav-menu a {
     text-align: center;
-    padding: 10px;
-    font-size: 0.95rem;
+    padding: 12px;
+    font-size: 1rem;
+    border-bottom: 1px solid #d0e4f7;
   }
 
-  /* Dropdowns visible on mobile */
+  /* Mobile dropdowns */
   nav ul.nav-menu li ul.dropdown-menu {
     position: static;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     box-shadow: none;
-    background: #f8fbff;
+    background: #eef6ff;
     margin-top: 4px;
     border-radius: 6px;
   }
 
   .dropdown-menu li a {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 10px 16px;
   }
 
-  /* Mobile card popup becomes stacked */
+  /* Header images visible on mobile */
+  header img,
+  .contact-header,
+  .blog-header,
+  .business-header,
+  .corporate-header,
+  .faq-header,
+  .glossary-header {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Mobile cards: popup stacked */
   .card .popup {
     display: block;
     position: static;
@@ -328,4 +340,4 @@ footer a:hover {
     color: #003366;
     box-shadow: none;
   }
-}
+   }

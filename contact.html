@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Contact page overrides ===== */
+
+/* Fixed header + pale blue background */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Body padding for fixed header */
+body {
+    padding-top: 100px;
+}
+
+/* Dropdown hover stability */
+nav ul.nav-menu li:hover > ul.dropdown-menu,
+nav ul.nav-menu li ul.dropdown-menu:hover {
+    display: block !important;
+}
+
+nav ul.nav-menu li ul.dropdown-menu {
+    margin-top: 2px !important;
+}
+
+/* Header image full-width */
+.contact-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Section spacing */
+.section {
+    padding: 80px 20px;
+}
+
+/* Grid / Cards */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 24px;
+}
+
+/* Cards */
+.card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #d0e4f7;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+/* Form styling */
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    border: 1px solid #b3d1f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+form button {
+    background-color: #00aaff;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: #b3e7ff;
+}
+
+/* Footer standardization */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul.nav-menu li ul.dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        margin-top: 10px !important;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-container">
+        <div class="logo">
+            <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Our Insurance Areas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="life-insurance.html">Life Insurance</a></li>
+                        <li><a href="health-insurance.html">Health Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
+                        <li><a href="special-coverage.html">Special Coverage</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Products & Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                        <li><a href="policy-customization.html">Policy Customization</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Full-width header image -->
+    <img class="contact-header" src="images/contact.jpg" alt="Contact Header">
+
+    <section class="section">
+        <div class="container">
+            <h1>CONTACT</h1>
+            <p>We are here to help. Reach out using the contact details below or submit the form and an adviser will contact you within one business day.</p>
+
+            <div class="grid-2" style="margin-top:16px">
+                <!-- Contact Information -->
+                <div class="card">
+                    <h3>Office</h3>
+                    <p>Address: 27, Bagatelle, Moka</p>
+                    <p>Phone: (+230) 2748890</p>
+                    <p>Email: <a href="mailto:support@blueshieldinsure.com">support@blueshieldinsure.com</a></p>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="card">
+                    <h3>Send us a message</h3>
+                    <form>
+                        <label>Full name</label><br>
+                        <input type="text" name="name" required><br><br>
+                        <label>Email address</label><br>
+                        <input type="email" name="email" required><br><br>
+                        <label>Your message</label><br>
+                        <textarea name="message" rows="6" required></textarea><br><br>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

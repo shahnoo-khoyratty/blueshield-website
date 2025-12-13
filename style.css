@@ -1,0 +1,318 @@
+﻿/* =========================================
+   GLOBAL RESET
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f7fa;  /* soft light background */
+  color: #222;
+  padding-top: 100px; 
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* =========================================
+   HEADER + NAVIGATION
+========================================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;  /* clean white header */
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* subtle professional shadow */
+  padding: 18px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.logo img {
+  max-height: 55px;
+}
+
+/* NAV MENU */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;  
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+/* Dropdown */
+nav ul.nav-menu li ul.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  list-style: none;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 12px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  border-radius: 8px;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 99;
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  display: block;
+  color: #003366;
+  font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f8ff;
+}
+
+/* NAVIGATION HIGHLIGHT — hover/tap + underline */
+@media (hover: hover) and (pointer: fine) {
+  .nav-menu a:hover,
+  .nav-menu li.active > a {
+    color: #0077cc;
+    text-decoration: underline;
+    background-color: #e6f8ff;
+    transform: scale(1.05);
+  }
+
+  nav ul.nav-menu li:hover > ul.dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .nav-menu a:active {
+    color: #0077cc;
+    text-decoration: underline;
+    background-color: #e6f8ff;
+    transform: scale(1.05);
+  }
+
+  .card .popup {
+    display: block;
+    position: static;
+    width: 100%;
+    margin-top: 12px;
+    background: #eef6ff;
+    color: #003366;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: none;
+  }
+
+  nav ul.nav-menu li ul.dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    margin-top: 8px;
+  }
+}
+
+/* =========================================
+   MAIN SECTIONS
+========================================= */
+.section {
+  padding: 100px 20px;
+}
+
+.section h1 {
+  font-size: 2.6rem;
+  color: #003366;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.section h3 {
+  font-size: 1.4rem;
+  color: #003366;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.section p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* =========================================
+   GRID / CARDS
+========================================= */
+.grid-2, .grid-3, .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #d0e4f7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+  }
+
+  .card:hover .popup {
+    display: block;
+  }
+}
+
+/* Card popup */
+.card .popup {
+  display: none;
+  position: absolute;
+  top: -160px;
+  left: 0;
+  width: 280px;
+  background: #003366;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  z-index: 10;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.btn-primary {
+  background-color: #0077cc;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0,119,204,0.2);
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,119,204,0.3);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+  background: #003366;
+  color: #ffffff;
+  padding: 60px 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+footer a {
+  color: #aad7ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE / TABLET
+========================================= */
+@media (max-width: 992px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  .btn-primary { padding: 12px 28px; font-size: 0.95rem; }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}

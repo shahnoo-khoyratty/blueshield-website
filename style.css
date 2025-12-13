@@ -1,252 +1,9 @@
-/* =========================================
-   GLOBAL RESET
-========================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  background: #f5f7fa;
-  color: #222;
-  padding-top: 100px;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* =========================================
-   CONTAINER
-========================================= */
-.container {
-  width: 90%;
-  max-width: 1300px;
-  margin: auto;
-}
-
-/* =========================================
-   HEADER + NAVIGATION (DESKTOP)
-========================================= */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #ffffff;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  padding: 18px 0;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  max-height: 55px;
-  width: auto;
-}
-
-/* NAV MENU */
-.nav-menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.nav-menu li {
-  position: relative;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #003366;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-/* Dropdown */
-nav ul.nav-menu li ul.dropdown-menu {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  list-style: none;
-  background: #ffffff;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  padding: 12px 0;
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  border-radius: 8px;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
-  z-index: 99;
-}
-
-.dropdown-menu li a {
-  padding: 10px 20px;
-  display: block;
-  font-weight: 500;
-}
-
-.dropdown-menu li a:hover {
-  background-color: #f0f8ff;
-}
-
-/* Desktop hover behavior */
-@media (hover: hover) and (pointer: fine) {
-  .nav-menu a:hover {
-    color: #0077cc;
-    background-color: #e6f8ff;
-    text-decoration: underline;
-  }
-
-  nav ul.nav-menu li:hover > ul.dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-}
-
-/* =========================================
-   SECTIONS
-========================================= */
-.section {
-  padding: 100px 20px;
-}
-
-.section h1 {
-  font-size: 2.6rem;
-  color: #003366;
-  margin-bottom: 24px;
-}
-
-.section h2 {
-  font-size: 2rem;
-  color: #003366;
-  margin-bottom: 20px;
-}
-
-.section h3 {
-  font-size: 1.4rem;
-  color: #003366;
-  margin-bottom: 16px;
-}
-
-.section p {
-  margin-bottom: 16px;
-  color: #444;
-}
-
-/* =========================================
-   GRID + CARDS
-========================================= */
-.grid-2,
-.grid-3,
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 24px;
-}
-
-.card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 14px;
-  border: 1px solid #d0e4f7;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Desktop hover card */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
-  }
-
-  .card:hover .popup {
-    display: block;
-  }
-}
-
-/* Popup for cards */
-.card .popup {
-  display: none;
-  position: absolute;
-  top: -140px;
-  left: 0;
-  width: 280px;
-  background: #003366;
-  color: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  z-index: 10;
-}
-
-/* =========================================
-   BUTTONS
-========================================= */
-.btn-primary {
-  background-color: #0077cc;
-  color: #ffffff;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn-primary:hover {
-  background-color: #005fa3;
-  transform: translateY(-2px);
-}
-
-/* =========================================
-   FOOTER
-========================================= */
-footer {
-  background: #003366;
-  color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-footer a {
-  color: #aad7ff;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ffffff;
-}
-
-/* =========================================
-   MOBILE STYLES
-========================================= */
+/* ================== MOBILE / BURGER MENU ================== */
 @media (max-width: 768px) {
 
-  /* Compact header */
+  /* Header region pale blue */
   header {
+    background-color: #d9f0ff; /* same as PC header */
     padding: 10px 0;
   }
 
@@ -254,90 +11,89 @@ footer a:hover {
     padding-top: 120px;
   }
 
-  /* Center logo + nav */
   .nav-container {
-    flex-direction: column;
+    flex-direction: row; /* logo + burger in one row */
     align-items: center;
+    gap: 10px;
+    justify-content: flex-start; /* start from left */
   }
 
-  .logo {
-    margin-bottom: 10px;
-  }
-
-  .logo img {
-    max-height: 48px;
-  }
-
-  /* Burger menu */
+  /* Burger menu on left */
   .burger {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 16px;
-    right: 20px;
-  }
-
-  .nav-menu {
-    display: none; /* hidden by default, shown by burger click */
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 6px;
-    background: #f8fbff;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-
-  .nav-menu.show {
     display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 10px; /* little spacing from left edge */
   }
 
-  .nav-menu a {
-    text-align: center;
-    padding: 12px;
-    font-size: 1rem;
-    border-bottom: 1px solid #d0e4f7;
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background: #003366;
+    border-radius: 2px;
   }
 
-  /* Mobile dropdowns */
+  /* Logo starts after burger */
+  .logo {
+    margin-left: 10px; /* space after burger */
+  }
+
+  /* Nav menu hidden initially, scrollable when open */
+  .nav-menu {
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-menu.open {
+    max-height: calc(100vh - 80px); /* scrollable menu */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-menu li a {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    background: #e6f8ff;
+  }
+
+  /* Dropdowns on mobile */
   nav ul.nav-menu li ul.dropdown-menu {
     position: static;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
     box-shadow: none;
-    background: #eef6ff;
-    margin-top: 4px;
+    margin-left: 10px;
+    margin-top: 5px;
     border-radius: 6px;
   }
 
-  .dropdown-menu li a {
-    padding: 10px 16px;
-  }
-
-  /* Header images visible on mobile */
-  header img,
-  .contact-header,
-  .blog-header,
-  .business-header,
-  .corporate-header,
-  .faq-header,
-  .glossary-header {
-    display: block !important;
+  /* Card pop-ups become collapsible on tap */
+  .card .popup,
+  .card .tooltip {
+    position: static; /* stacked inside card */
+    display: none; /* hide by default */
     width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  /* Mobile cards: popup stacked */
-  .card .popup {
-    display: block;
-    position: static;
-    width: 100%;
-    margin-top: 12px;
+    margin-top: 10px;
     background: #eef6ff;
     color: #003366;
+    padding: 12px;
+    border-radius: 8px;
     box-shadow: none;
   }
-   }
+
+  /* Grid responsive */
+  .grid-2,
+  .grid-3,
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

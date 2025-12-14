@@ -17,7 +17,7 @@ header {
   top: 0;
   width: 100%;
   background: #d9f0ff;
-  z-index: 1000;
+  z-index: 1001; /* above nav */
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -30,7 +30,7 @@ header {
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0; /* fully left on desktop */
+  margin-left: 0; /* desktop: fully left */
 }
 
 .logo img {
@@ -38,7 +38,7 @@ header {
   width: auto;
 }
 
-/* ===================== BURGER (MOBILE ONLY) */
+/* ===================== BURGER (MOBILE ONLY) ===================== */
 .burger {
   display: none;
   width: 32px;
@@ -46,7 +46,6 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1002; /* above nav */
 }
 
 .burger span {
@@ -175,18 +174,20 @@ footer {
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
+  /* Burger */
   .burger {
     display: flex;
+    z-index: 1002; /* above nav */
   }
 
-  /* Logo smaller so burger is fully clickable */
+  /* Logo smaller so burger is clickable */
   .logo {
-    margin-left: 60px; /* leave space for burger on left */
+    margin-left: 60px; /* leave space for burger */
     position: fixed;
     top: 0;
     left: 0;
     height: 90px; /* same as header */
-    background: #d9f0ff;
+    background: #d9f0ff; /* pale blue header */
     display: flex;
     align-items: center;
     padding-left: 12px;
@@ -194,18 +195,19 @@ footer {
   }
 
   .logo img {
-    height: 50px; /* reduce size to avoid overlap */
+    height: 50px; /* smaller logo */
   }
 
+  /* Slide menu behind header background */
   nav {
     position: fixed;
-    top: 90px; /* below logo */
+    top: 90px; /* below header */
     left: 0;
     width: 100%;
     background: #d9f0ff;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-    z-index: 1000; /* behind logo */
+    z-index: 1000; /* behind logo/header */
   }
 
   nav.open {
@@ -237,3 +239,4 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+	

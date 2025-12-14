@@ -1,106 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insights & Blog - BlueShield</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights & Blog - BlueShield</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <div class="container nav-container">
-        <div class="logo">
-            <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
-        </div>
+  <div class="nav-container">
 
-        <!-- Burger menu for mobile -->
-        <span class="burger">&#9776;</span>
-
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="home.html">Home</a></li>
-
-                <li class="dropdown">
-                    <a href="#">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="vision.html">Vision</a></li>
-                        <li><a href="mission.html">Mission</a></li>
-                        <li><a href="team.html">Meet Our Team</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Our Insurance Areas</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="life-insurance.html">Life Insurance</a></li>
-                        <li><a href="health-insurance.html">Health Insurance</a></li>
-                        <li><a href="business-insurance.html">Business Insurance</a></li>
-                        <li><a href="special-coverage.html">Special Coverage</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Products & Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
-                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
-                        <li><a href="risk-management.html">Risk Management</a></li>
-                        <li><a href="policy-customization.html">Policy Customization</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Resources</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog.html" class="active">Insights & Blog</a></li>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="glossary.html">Glossary</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Burger (mobile only) -->
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html">
+        <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-menu">
+
+        <li><a href="home.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+    </nav>
+
+  </div>
 </header>
 
 <main>
-    <!-- Full-width blog header -->
-    <img class="blog-header" src="images/blog.jpg" alt="Insights & Blog Header">
 
-    <section class="section">
-        <div class="container">
-            <h1>INSIGHTS & BLOG</h1>
-            <p>Analysis, guides and practical advice from our team of advisers. We publish articles that demystify insurance decisions and help clients make informed choices.</p>
+  <!-- PAGE HEADER IMAGE -->
+  <section class="hero-section">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Insights & Blog</h1>
+        <p>
+          Analysis, guides and practical advice from our team of advisers.
+          We publish articles that demystify insurance decisions and help clients
+          make informed choices.
+        </p>
+      </div>
 
-            <div class="grid-2 blog-grid" style="margin-top:16px">
-                <div class="card">
-                    <a href="https://www.gocompare.com/life-insurance/" target="_blank">
-                        <img src="images/compare1.jpg" alt="Post 1">
-                        <h3><span style="color:#ff0000;">[Click here]</span> How to compare life insurance quotes</h3>
-                        <p>Practical checklist to ensure you compare like-for-like benefits and exclusions when evaluating offers.</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://www.healthcare.gov/get-answers/" target="_blank">
-                        <img src="images/health.jpg" alt="Post 2">
-                        <h3><span style="color:#ff0000;">[Click here]</span> Top health-plan questions answered</h3>
-                        <p>Key considerations for networks, co-payments and specialist access when choosing a health plan.</p>
-                    </a>
-                </div>
-            </div>
+      <div class="hero-image">
+        <img src="images/blog.jpg" alt="Insights & Blog Header">
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG CARDS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="grid-3">
+
+        <div class="card">
+          <a href="https://www.gocompare.com/life-insurance/" target="_blank">
+            <img src="images/compare1.jpg" alt="How to compare life insurance quotes">
+            <h3>How to compare life insurance quotes</h3>
+            <p>
+              Practical checklist to ensure you compare like-for-like benefits
+              and exclusions when evaluating offers.
+            </p>
+          </a>
         </div>
-    </section>
+
+        <div class="card">
+          <a href="https://www.healthcare.gov/get-answers/" target="_blank">
+            <img src="images/health.jpg" alt="Top health-plan questions answered">
+            <h3>Top health-plan questions answered</h3>
+            <p>
+              Key considerations for networks, co-payments and specialist access
+              when choosing a health plan.
+            </p>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
 <footer>
-    <div class="container">
-        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
-    </div>
+  <p>
+    &copy; 2025 BlueShield Insurance Group. All rights reserved |
+    <a href="contact.html" style="color:#ffffff;">Contact</a>
+  </p>
 </footer>
 
-<!-- Menu JS -->
 <script src="menu.js"></script>
 </body>
 </html>
+	

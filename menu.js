@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.classList.toggle("open");
   });
 
-  // Mobile dropdown toggle (only after clicking the parent dropdown)
+  // Mobile dropdown toggle
   dropdowns.forEach(drop => {
     const link = drop.querySelector("a");
     link.addEventListener("click", e => {
       if (window.innerWidth <= 768) {
-        e.preventDefault(); // prevent link navigation
+        e.preventDefault();
         drop.classList.toggle("open");
       }
     });

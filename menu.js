@@ -1,23 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Add 'scrolled' class only after scrolling
+  // Initially hide burger
+  burger.style.display = "none";
+
+  // Show burger only after scrolling down
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      document.body.classList.add("scrolled");
+    if (window.scrollY > 90) { // adjust threshold as needed
+      burger.style.display = "flex";
     } else {
-      document.body.classList.remove("scrolled");
+      burger.style.display = "none";
+      nav.classList.remove("open"); // close menu if user scrolls back up
     }
   });
 
-  // Burger toggle (only works after scrolling)
+  // Burger toggle
   burger.addEventListener("click", () => {
-    if (document.body.classList.contains("scrolled")) {
-      nav.classList.toggle("open");
-    }
+    nav.classList.toggle("open");
   });
 
   // Mobile dropdown toggle
@@ -30,5 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
 });

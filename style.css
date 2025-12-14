@@ -1,4 +1,4 @@
-/ ===================== RESET ===================== /
+/* ===================== RESET ===================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,10 +8,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  padding-top: 100px; / space for fixed header /
+  padding-top: 100px; /* space for fixed header */
 }
 
-/ ===================== HEADER ===================== /
+/* ===================== HEADER ===================== */
 header {
   position: fixed;
   top: 0;
@@ -24,15 +24,13 @@ header {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; / ensures logo left, nav right /
   height: 90px;
   padding: 0 16px;
 }
 
-/ ===================== LOGO ===================== /
+/* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0;   / logo fully left /
-  margin-right: auto;
+  margin-right: auto; /* Changed: logo now on complete left side for desktop */
 }
 
 .logo img {
@@ -40,7 +38,7 @@ header {
   width: auto;
 }
 
-/ ===================== BURGER (MOBILE ONLY) ===================== /
+/* ===================== BURGER (MOBILE ONLY) ===================== */
 .burger {
   display: none;
   width: 32px;
@@ -48,6 +46,12 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0; /* Changed: initially hidden on mobile */
+  transition: opacity 0.3s ease;
+}
+
+.burger.visible {
+  opacity: 1; /* Changed: only visible when scrolled down */
 }
 
 .burger span {
@@ -57,7 +61,7 @@ header {
   transition: 0.3s ease;
 }
 
-/ ===================== NAV ===================== /
+/* ===================== NAV ===================== */
 nav {
   margin-left: 24px;
 }
@@ -86,7 +90,7 @@ nav {
   border-bottom: 2px solid #0077cc;
 }
 
-/ Dropdown /
+/* Dropdown */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -107,7 +111,7 @@ nav {
   border: none;
 }
 
-/ ===================== HERO ===================== /
+/* ===================== HERO ===================== */
 .hero-section {
   background: linear-gradient(180deg, #ffffff, #e6f8ff);
   padding: 60px 20px;
@@ -127,7 +131,7 @@ nav {
   width: 100%;
 }
 
-/ ===================== SECTIONS ===================== /
+/* ===================== SECTIONS ===================== */
 .section {
   padding: 60px 20px;
 }
@@ -150,7 +154,7 @@ nav {
   border-radius: 8px;
 }
 
-/ Popup (desktop hover) /
+/* Popup (desktop hover) */
 .card .popup {
   display: none;
   position: absolute;
@@ -165,7 +169,7 @@ nav {
   display: block;
 }
 
-/ ===================== FOOTER ===================== /
+/* ===================== FOOTER ===================== */
 footer {
   background: #1a1a1a;
   color: #ffffff;
@@ -173,15 +177,16 @@ footer {
   text-align: center;
 }
 
-/ ===================== MOBILE ===================== /
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
   .burger {
-    display: none; / hidden by default, shown via JS after scroll /
+    display: flex;
   }
 
   .logo {
     margin-left: 12px;
+    margin-right: auto; /* Changed: keep logo on left for mobile too */
   }
 
   nav {

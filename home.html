@@ -1,229 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home - BlueShield</title>
-<link rel="stylesheet" href="style.css">
-<style>
-/* ===== Home-specific overrides ===== */
-/* Header */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #d9f0ff;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* Container spacing for fixed header */
-body {
-    padding-top: 90px;
-}
-
-/* Logo */
-nav .logo img {
-    height: 60px; /* resized to fit screen nicely */
-}
-
-/* Nav menu desktop hover effect */
-nav ul.nav-menu li a {
-    transition: transform 0.2s, color 0.2s, text-decoration 0.2s;
-}
-nav ul.nav-menu li a:hover {
-    color: #0077cc;
-    transform: translateY(-2px);
-    text-decoration: underline;
-}
-
-/* Hero section */
-.hero-section {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background: linear-gradient(180deg, #ffffff 0%, #e6f8ff 100%);
-    padding: 100px 20px 60px; /* decreased top padding */
-}
-.hero-inner {
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-/* Hero text */
-.hero-text {
-    flex: 1 1 50%;
-}
-.hero-values li {
-    text-align: left; /* keep left-aligned on mobile */
-}
-
-/* Hero image */
-.hero-image {
-    flex: 1 1 50%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-}
-
-/* Burger menu */
-.burger {
-    display: none; /* only show on mobile */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 1001;
-}
-.burger span {
-    display: block;
-    height: 4px;
-    background: #003366;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Mobile nav menu */
-nav ul.nav-menu {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    align-items: center;
-}
-@media (max-width: 768px) {
-    .burger {
-        display: flex;
-    }
-    nav {
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background: #d9f0ff;
-        max-height: 0;
-        overflow-y: auto;
-        transition: max-height 0.3s ease;
-    }
-    nav.open {
-        max-height: 500px;
-    }
-    nav ul.nav-menu {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-    }
-    nav ul.nav-menu li a {
-        padding: 12px 16px;
-        border-bottom: 1px solid #b3e7ff;
-    }
-    nav ul.nav-menu li ul.dropdown-menu {
-        position: static;
-        display: none;
-        background: #e6f8ff;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    nav ul.nav-menu li.open ul.dropdown-menu {
-        display: block;
-    }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - BlueShield</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
-    <div class="container nav-container">
-        <div class="logo">
-            <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
-        </div>
-        <div class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="home.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="vision.html">Vision</a></li>
-                        <li><a href="mission.html">Mission</a></li>
-                        <li><a href="team.html">Meet Our Team</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Our Insurance Areas</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="life-insurance.html">Life Insurance</a></li>
-                        <li><a href="health-insurance.html">Health Insurance</a></li>
-                        <li><a href="business-insurance.html">Business Insurance</a></li>
-                        <li><a href="special-coverage.html">Special Coverage</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Products & Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
-                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
-                        <li><a href="risk-management.html">Risk Management</a></li>
-                        <li><a href="policy-customization.html">Policy Customization</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Resources</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="glossary.html">Glossary</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+  <div class="nav-container">
+
+    <!-- Burger (mobile) -->
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html">
+        <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="home.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+  </div>
 </header>
 
 <main>
-    <!-- Hero and rest of page remain unchanged -->
+
+<section class="hero-section">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Protecting Your Future With Confidence</h1>
+      <ul class="hero-values">
+        <li>Est. 1998</li>
+        <li>Robust, transparent insurance, risk management solutions.</li>
+        <li>Crafted for individuals, families and businesses</li>
+        <li>Tailored policies that match real needs</li>
+        <li>Fast, fair and human claims handling</li>
+        <li>Regulated, licensed and professionally governed</li>
+      </ul>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/hero-family.jpg" alt="Family protected by BlueShield">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid-3">
+
+    <div class="card">
+      <h3>Life Insurance</h3>
+      <p>
+        Flexible life solutions to preserve capital, replace income and provide for dependents.
+        <br><strong>Click for more ...</strong>
+      </p>
+      <div class="popup">
+        Long-term protection, income replacement and estate planning solutions.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Health Insurance</h3>
+      <p>
+        Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.
+        <br><strong>Click for more ...</strong>
+      </p>
+      <div class="popup">
+        Inpatient, outpatient, specialists and assisted claims handling.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Business Insurance</h3>
+      <p>
+        Property, liability, business interruption and employee benefit solutions.
+        <br><strong>Click for more ...</strong>
+      </p>
+      <div class="popup">
+        Custom protection for SMEs and large organisations.
+      </div>
+    </div>
+
+  </div>
+</section>
+
 </main>
 
 <footer>
-    <div class="container">
-        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. |
-        <a href="contact.html">Contact</a></p>
-    </div>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved.</p>
 </footer>
 
-<script>
-// Burger and dropdown toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector("nav");
-    const dropdowns = document.querySelectorAll(".dropdown");
-
-    burger.addEventListener("click", () => {
-        nav.classList.toggle("open");
-    });
-
-    dropdowns.forEach(drop => {
-        drop.querySelector("a").addEventListener("click", e => {
-            if(window.innerWidth <= 768){
-                e.preventDefault();
-                drop.classList.toggle("open");
-            }
-        });
-    });
-});
-</script>
+<script src="menu.js"></script>
 </body>
 </html>
-	

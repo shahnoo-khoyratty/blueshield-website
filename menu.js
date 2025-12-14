@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         card.addEventListener('click', () => {
             const popup = card.querySelector('.popup');
             if (popup) {
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                popup.classList.toggle('show');
             }
         });
     });

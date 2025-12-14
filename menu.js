@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const dropdowns = document.querySelectorAll(".dropdown");
-  const cards = document.querySelectorAll(".card");
 
   // Burger toggle
   burger.addEventListener("click", () => {
@@ -20,12 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mobile card tap behavior
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        card.classList.toggle("open");
-      }
-    });
-  });
 });

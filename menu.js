@@ -1,25 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
+    const burger = document.createElement('div');
+    burger.classList.add('burger');
+    burger.innerHTML = '<span></span><span></span><span></span>';
+    
+    const navContainer = document.querySelector('.nav-container');
+    navContainer.insertBefore(burger, navContainer.firstChild);
 
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector("nav");
-    const dropdowns = document.querySelectorAll(".dropdown");
-    const cards = document.querySelectorAll(".card");
+    const navMenu = document.querySelector('nav ul.nav-menu');
 
-    burger.addEventListener("click", () => {
-        nav.classList.toggle("open");
+    burger.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
     });
 
-    dropdowns.forEach(drop => {
-        drop.querySelector("a").addEventListener("click", e => {
-            e.preventDefault();
-            drop.classList.toggle("open");
-        });
-    });
-
+    // Card click toggles popup on mobile
+    const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-        card.addEventListener("click", () => {
-            card.classList.toggle("open");
+        card.addEventListener('click', () => {
+            const popup = card.querySelector('.popup');
+            if (popup) {
+                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+            }
         });
     });
-
 });

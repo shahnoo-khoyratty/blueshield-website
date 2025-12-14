@@ -3,19 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Business Insurance - BlueShield</title>
+<title>Home - BlueShield</title>
+
 <link rel="stylesheet" href="style.css">
+<script src="menu.js" defer></script>
 </head>
+
 <body>
 
 <header>
-    <div class="container nav-container">
-        <div class="logo">
-            <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
+    <div class="nav-container">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-        <!-- Burger menu for mobile -->
-        <span class="burger">&#9776;</span>
+        <div class="logo">
+            <a href="home.html">
+                <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+            </a>
+        </div>
 
         <nav>
             <ul class="nav-menu">
@@ -35,27 +43,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="life-insurance.html">Life Insurance</a></li>
                         <li><a href="health-insurance.html">Health Insurance</a></li>
-                        <li><a href="business-insurance.html" class="active">Business Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
                         <li><a href="special-coverage.html">Special Coverage</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Products & Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
-                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
-                        <li><a href="risk-management.html">Risk Management</a></li>
-                        <li><a href="policy-customization.html">Policy Customization</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Resources</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="glossary.html">Glossary</a></li>
                     </ul>
                 </li>
 
@@ -66,46 +55,61 @@
 </header>
 
 <main>
-    <!-- Full-width header image -->
-    <img class="business-header" src="images/business-header.jpg" alt="Business Insurance Header">
 
-    <section class="section">
-        <div class="container">
-            <h1>BUSINESS INSURANCE</h1>
-            <p class="instructions">Hover over the rectangles to see details pop-up.</p>
-            <p>Protect your enterprise with sector-aware insurance solutions. We assess operational risks and design programs covering property, liability, business interruption and employee benefit schemes.</p>
-
-            <h2 style="margin-top:14px">Core Offerings</h2>
-            <div class="grid-2" style="margin-top:12px">
-                <div class="card">
-                    <h3>SME Packages</h3>
-                    <p>Core protections for smaller firms with competitive premiums and scalable limits.</p>
-                    <div class="tooltip">
-                        Our SME Packages provide tailored coverage including property, liability, and employee benefits. Premiums are designed to scale with business growth while ensuring essential protection.
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Enterprise Programs</h3>
-                    <p>Custom cover and program management for complex operations and multinational exposures.</p>
-                    <div class="tooltip">
-                        Enterprise Programs include multi-entity insurance solutions, risk management consulting, global compliance support, and dedicated account management for large corporations.
-                    </div>
-                </div>
-            </div>
-
-            <h2 style="margin-top:14px">Risk Engineering</h2>
-            <p>We partner with loss control experts to reduce frequency and severity of claims — delivering measurable cost savings over time.</p>
+<section class="hero-section">
+    <div class="hero-inner">
+        <div>
+            <h1>Protecting Your Future With Confidence</h1>
+            <a href="contact.html">Get a Quote</a>
         </div>
-    </section>
+
+        <div class="hero-image">
+            <img src="images/hero-family.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="grid-3">
+
+        <div class="card">
+            <h3>Life Insurance</h3>
+            <p>
+                Flexible life solutions to preserve capital, replace income and provide for dependents.
+            </p>
+            <div class="popup">
+                Term life, whole life, estate planning and income protection.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Health Insurance</h3>
+            <p>
+                Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.
+            </p>
+            <div class="popup">
+                Inpatient, outpatient, dental and specialist care.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Business Insurance</h3>
+            <p>
+                Property, liability, business interruption and employee benefit solutions.
+            </p>
+            <div class="popup">
+                SME packages, enterprise cover and risk management.
+            </div>
+        </div>
+
+    </div>
+</section>
+
 </main>
 
 <footer>
-    <div class="container">
-        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
-    </div>
+    <p>&copy; 2025 BlueShield Insurance Group</p>
 </footer>
 
-<!-- Menu JS -->
-<script src="menu.js"></script>
 </body>
-                                                                                                                  </html>
+</html>

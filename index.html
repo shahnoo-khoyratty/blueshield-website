@@ -5,23 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home - BlueShield</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
+<script src="menu.js" defer></script>
 </head>
-
 <body>
 
 <header>
     <div class="container nav-container">
+        <div class="burger" id="burger">&#9776;</div>
         <div class="logo">
             <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
         </div>
-
-        <!-- Burger menu for mobile -->
-        <span class="burger">&#9776;</span>
-
         <nav>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="home.html" class="active">Home</a></li>
-
                 <li class="dropdown">
                     <a href="#">About Us</a>
                     <ul class="dropdown-menu">
@@ -30,7 +27,6 @@
                         <li><a href="team.html">Meet Our Team</a></li>
                     </ul>
                 </li>
-
                 <li class="dropdown">
                     <a href="#">Our Insurance Areas</a>
                     <ul class="dropdown-menu">
@@ -40,7 +36,6 @@
                         <li><a href="special-coverage.html">Special Coverage</a></li>
                     </ul>
                 </li>
-
                 <li class="dropdown">
                     <a href="#">Products & Solutions</a>
                     <ul class="dropdown-menu">
@@ -50,7 +45,6 @@
                         <li><a href="policy-customization.html">Policy Customization</a></li>
                     </ul>
                 </li>
-
                 <li class="dropdown">
                     <a href="#">Resources</a>
                     <ul class="dropdown-menu">
@@ -59,7 +53,6 @@
                         <li><a href="glossary.html">Glossary</a></li>
                     </ul>
                 </li>
-
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -68,22 +61,18 @@
 
 <main>
 
-    <!-- Hero -->
     <section class="hero-section">
         <div class="container hero-inner">
             <div class="hero-text">
-                
-             	<h1>Protecting Your Future With Confidence</h1>
-
+                <h1>Protecting Your Future With Confidence</h1>
                 <ul class="hero-values">
                     <li>Est. 1998</li>
-		    <li>Robust, transparent insurance, risk management solutions.</li>
-		    <li>Crafted for individuals, families and businesses</li>
+                    <li>Robust, transparent insurance, risk management solutions.</li>
+                    <li>Crafted for individuals, families and businesses</li>
                     <li>Tailored policies that match real needs</li>
                     <li>Fast, fair and human claims handling</li>
                     <li>Regulated, licensed and professionally governed</li>
                 </ul>
-
                 <a class="btn-primary" href="contact.html">Get a Quote</a>
                 <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
             </div>
@@ -94,16 +83,13 @@
         </div>
     </section>
 
-    <!-- Services summary -->
     <section class="section">
         <div class="container grid-3">
 
-            <!-- LIFE -->
             <div class="card">
                 <img src="images/service-life.jpg" alt="Life Insurance">
                 <h3>Life Insurance</h3>
-                <p>Flexible life solutions to preserve capital, replace income and provide for dependents.</p>
-
+                <p>Flexible life solutions to preserve capital, replace income and provide for dependents. Click to continue.</p>
                 <div class="popup">
                     Our life insurance products include Term Life for affordable protection
                     and Whole Life for lifetime cover with cash value growth. These options
@@ -111,24 +97,20 @@
                 </div>
             </div>
 
-            <!-- HEALTH -->
             <div class="card">
                 <img src="images/service-health.jpg" alt="Health Insurance">
                 <h3>Health Insurance</h3>
-                <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.</p>
-
+                <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans. Click to continue.</p>
                 <div class="popup">
                     Health plans cover inpatient, outpatient, specialists, emergency treatment,
                     optional dental, and access to a nationwide provider network with assisted claims handling.
                 </div>
             </div>
 
-            <!-- BUSINESS -->
             <div class="card">
                 <img src="images/service-business.jpg" alt="Business Insurance">
                 <h3>Business Insurance</h3>
-                <p>Property, liability, business interruption and employee benefit solutions.</p>
-
+                <p>Property, liability, business interruption and employee benefit solutions. Click to continue.</p>
                 <div class="popup">
                     Business protection includes property damage cover, employer liability,
                     cyber protection, business interruption and tailored packages for SMEs
@@ -139,7 +121,6 @@
         </div>
     </section>
 
-    <!-- Blog -->
     <section class="section">
         <div class="container">
             <h2>Insights & Updates</h2>
@@ -172,12 +153,9 @@
 
 <footer>
     <div class="container">
-        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | 
-        <a href="contact.html">Contact</a></p>
+        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
     </div>
 </footer>
 
-<!-- Menu JS -->
-<script src="menu.js"></script>
 </body>
-	</html>
+</html>

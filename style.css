@@ -30,7 +30,7 @@ header {
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0; /* desktop: fully left */
+  margin-left: 0; /* fully left on desktop */
 }
 
 .logo img {
@@ -38,7 +38,7 @@ header {
   width: auto;
 }
 
-/* ===================== BURGER (MOBILE ONLY) ===================== */
+/* ===================== BURGER (MOBILE ONLY) */
 .burger {
   display: none;
   width: 32px;
@@ -46,6 +46,7 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1002; /* above nav */
 }
 
 .burger span {
@@ -174,25 +175,26 @@ footer {
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
-  /* Burger */
   .burger {
     display: flex;
-    z-index: 1002; /* on top */
   }
 
-  /* Logo fixed on top, covers top fully */
+  /* Logo smaller so burger is fully clickable */
   .logo {
-    margin-left: 12px;
+    margin-left: 60px; /* leave space for burger on left */
     position: fixed;
     top: 0;
     left: 0;
     height: 90px; /* same as header */
     background: #d9f0ff;
-    width: 100%;
     display: flex;
     align-items: center;
     padding-left: 12px;
     z-index: 1001; /* above nav */
+  }
+
+  .logo img {
+    height: 50px; /* reduce size to avoid overlap */
   }
 
   nav {
@@ -235,4 +237,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-	

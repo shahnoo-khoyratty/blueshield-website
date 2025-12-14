@@ -17,7 +17,7 @@ header {
   top: 0;
   width: 100%;
   background: #d9f0ff;
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -26,11 +26,12 @@ header {
   align-items: center;
   height: 90px;
   padding: 0 16px;
+  justify-content: space-between; /* logo left, nav right */
 }
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0; /* desktop: fully left */
+  margin-left: 0; /* desktop fully left */
 }
 
 .logo img {
@@ -38,7 +39,7 @@ header {
   width: auto;
 }
 
-/* ===================== BURGER (MOBILE ONLY) ===================== */
+/* ===================== BURGER (MOBILE ONLY) */
 .burger {
   display: none;
   width: 32px;
@@ -120,6 +121,24 @@ nav {
   flex: 1;
 }
 
+/* Bigger "Get a Quote" button */
+.hero-text .btn-primary {
+  background-color: #b3e7ff;
+  color: #003366;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hero-text .btn-primary:hover {
+  background-color: #99ddff;
+}
+
 .hero-image img {
   max-width: 500px;
   width: 100%;
@@ -171,39 +190,46 @@ footer {
   text-align: center;
 }
 
+/* ===================== BLOG CENTERING ===================== */
+.section .container .grid-3 {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 40px; /* equal spacing between cards */
+}
+
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
-
-  /* Burger */
   .burger {
     display: flex;
-    z-index: 1002; /* on top */
+    z-index: 1002;
   }
 
-  /* Logo fixed on top, covers top fully */
   .logo {
-    margin-left: 12px;
+    margin-left: 60px; /* leave space for burger */
     position: fixed;
     top: 0;
     left: 0;
-    height: 90px; /* same as header */
+    height: 90px;
     background: #d9f0ff;
-    width: 100%;
     display: flex;
     align-items: center;
     padding-left: 12px;
-    z-index: 1001; /* above nav */
+    z-index: 1001;
+  }
+
+  .logo img {
+    height: 50px;
   }
 
   nav {
     position: fixed;
-    top: 90px; /* below logo */
+    top: 90px;
     left: 0;
     width: 100%;
     background: #d9f0ff;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-    z-index: 1000; /* behind logo */
+    z-index: 1000;
   }
 
   nav.open {
@@ -233,6 +259,13 @@ footer {
 
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== DESKTOP NAV RIGHT ===================== */
+@media (min-width: 769px) {
+  nav {
+    margin-left: auto; /* push nav to right */
   }
 }
 	

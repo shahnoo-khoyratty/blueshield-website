@@ -5,20 +5,248 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home - BlueShield</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="mobile.css">
-<script src="menu.js" defer></script>
+<style>
+/* ===== Home-specific overrides ===== */
+
+/* Navigation fixed + pale blue background */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff; /* pale blue for logo/nav area */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 12px 0;
+}
+
+/* Body padding for fixed header */
+body {
+    padding-top: 100px;
+}
+
+/* Container for logo + burger */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Burger */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    margin-left: 10px;
+}
+.burger div {
+    width: 100%;
+    height: 3px;
+    background-color: #003366;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Logo */
+.logo {
+    margin-left: 20px;
+}
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* Nav menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #003366;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+/* Dropdown */
+.nav-menu li ul.dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    list-style: none;
+    background: #ffffff;
+    padding: 10px 0;
+    border-radius: 6px;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: none;
+}
+.nav-menu li:hover > ul.dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a:hover {
+    background-color: #e6f8ff;
+}
+
+/* Hero section */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, #ffffff 0%, #e6f8ff 100%);
+    padding: 120px 20px 60px;
+}
+.hero-inner {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: flex-start;
+}
+.hero-text {
+    flex: 1 1 50%;
+}
+.hero-image {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+/* Cards */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 20px;
+}
+.card {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Popups */
+.card .popup {
+    display: none;
+    position: absolute;
+    top: -160px;
+    left: 0;
+    width: 260px;
+    background: #003366;
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 8px;
+    z-index: 9999;
+}
+.card:hover .popup {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #d9f0ff;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .nav-menu.nav-active {
+        max-height: 500px;
+    }
+    .nav-menu li {
+        width: 100%;
+    }
+    .nav-menu li ul.dropdown-menu {
+        position: static;
+        display: none;
+    }
+    .nav-menu li.active-dropdown ul.dropdown-menu {
+        display: block;
+    }
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .card .popup {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        background-color: #eef6ff;
+        color: #003366;
+        display: none;
+    }
+    .card.active .popup {
+        display: block;
+    }
+}
+</style>
 </head>
 <body>
 
 <header>
     <div class="container nav-container">
-        <div class="burger" id="burger">&#9776;</div>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="logo">
             <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
         </div>
+
         <nav>
-            <ul class="nav-menu" id="nav-menu">
+            <ul class="nav-menu">
                 <li><a href="home.html" class="active">Home</a></li>
+
                 <li class="dropdown">
                     <a href="#">About Us</a>
                     <ul class="dropdown-menu">
@@ -27,6 +255,7 @@
                         <li><a href="team.html">Meet Our Team</a></li>
                     </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="#">Our Insurance Areas</a>
                     <ul class="dropdown-menu">
@@ -36,6 +265,7 @@
                         <li><a href="special-coverage.html">Special Coverage</a></li>
                     </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="#">Products & Solutions</a>
                     <ul class="dropdown-menu">
@@ -45,6 +275,7 @@
                         <li><a href="policy-customization.html">Policy Customization</a></li>
                     </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="#">Resources</a>
                     <ul class="dropdown-menu">
@@ -53,6 +284,7 @@
                         <li><a href="glossary.html">Glossary</a></li>
                     </ul>
                 </li>
+
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -60,11 +292,12 @@
 </header>
 
 <main>
-
+    <!-- Hero -->
     <section class="hero-section">
         <div class="container hero-inner">
             <div class="hero-text">
                 <h1>Protecting Your Future With Confidence</h1>
+
                 <ul class="hero-values">
                     <li>Est. 1998</li>
                     <li>Robust, transparent insurance, risk management solutions.</li>
@@ -73,6 +306,7 @@
                     <li>Fast, fair and human claims handling</li>
                     <li>Regulated, licensed and professionally governed</li>
                 </ul>
+
                 <a class="btn-primary" href="contact.html">Get a Quote</a>
                 <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
             </div>
@@ -83,72 +317,36 @@
         </div>
     </section>
 
+    <!-- Services summary -->
     <section class="section">
         <div class="container grid-3">
 
             <div class="card">
-                <img src="images/service-life.jpg" alt="Life Insurance">
                 <h3>Life Insurance</h3>
-                <p>Flexible life solutions to preserve capital, replace income and provide for dependents. Click to continue.</p>
+                <p>Flexible life solutions to preserve capital, replace income and provide for dependents. Click to continue ...</p>
                 <div class="popup">
-                    Our life insurance products include Term Life for affordable protection
-                    and Whole Life for lifetime cover with cash value growth. These options
-                    support income replacement, family security and long-term estate planning.
+                    Flexible life solutions to preserve capital, replace income and provide for dependents.
                 </div>
             </div>
 
             <div class="card">
-                <img src="images/service-health.jpg" alt="Health Insurance">
                 <h3>Health Insurance</h3>
-                <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans. Click to continue.</p>
+                <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans. Click to continue ...</p>
                 <div class="popup">
-                    Health plans cover inpatient, outpatient, specialists, emergency treatment,
-                    optional dental, and access to a nationwide provider network with assisted claims handling.
+                    Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.
                 </div>
             </div>
 
             <div class="card">
-                <img src="images/service-business.jpg" alt="Business Insurance">
                 <h3>Business Insurance</h3>
-                <p>Property, liability, business interruption and employee benefit solutions. Click to continue.</p>
+                <p>Property, liability, business interruption and employee benefit solutions. Click to continue ...</p>
                 <div class="popup">
-                    Business protection includes property damage cover, employer liability,
-                    cyber protection, business interruption and tailored packages for SMEs
-                    and large organisations.
+                    Property, liability, business interruption and employee benefit solutions.
                 </div>
             </div>
 
         </div>
     </section>
-
-    <section class="section">
-        <div class="container">
-            <h2>Insights & Updates</h2>
-
-            <div class="blog-grid">
-                <div class="card">
-                    <a href="blog.html#term-vs-whole-life">
-                        <img src="images/blog-placeholder1.jpg" alt="Understanding Term vs Whole Life">
-                        <h3>Understanding Term vs Whole Life</h3>
-                        <p>An in-depth guide to choosing the right lifetime protection strategy.</p>
-                    </a>
-                </div>
-
-                <div class="card">
-                    <a href="blog.html#health-insurance-tips">
-                        <img src="images/blog-placeholder.jpg" alt="Health Insurance Tips">
-                        <h3>Health Insurance Tips for 2025</h3>
-                        <p>How to evaluate networks, outpatient benefits and co-payment structures.</p>
-                    </a>
-                </div>
-            </div>
-
-            <p style="margin-top:16px">
-                <a class="btn-secondary" href="blog.html">Read more insights</a>
-            </p>
-        </div>
-    </section>
-
 </main>
 
 <footer>
@@ -156,6 +354,37 @@
         <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
     </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".nav-menu");
+    burger.addEventListener("click", () => {
+        nav.classList.toggle("nav-active");
+    });
+
+    // Toggle card popup on mobile
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.addEventListener("click", function() {
+            if(window.innerWidth <= 768) {
+                card.classList.toggle("active");
+            }
+        });
+    });
+
+    // Toggle dropdowns on mobile
+    const dropdowns = document.querySelectorAll(".nav-menu .dropdown > a");
+    dropdowns.forEach(drop => {
+        drop.addEventListener("click", function(e) {
+            if(window.innerWidth <= 768) {
+                e.preventDefault();
+                drop.parentElement.classList.toggle("active-dropdown");
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>

@@ -31,8 +31,6 @@ header {
 /* ===================== LOGO ===================== */
 .logo {
   margin-left: 0; /* desktop: fully left */
-  position: relative;
-  z-index: 1002; /* stays above nav */
 }
 
 .logo img {
@@ -48,7 +46,6 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1001; /* above nav */
 }
 
 .burger span {
@@ -177,20 +174,30 @@ footer {
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
+  /* Burger */
   .burger {
     display: flex;
-    z-index: 1001; /* above nav */
+    z-index: 1002; /* on top */
   }
 
+  /* Logo fixed on top, covers top fully */
   .logo {
     margin-left: 12px;
-    position: relative;
-    z-index: 1002; /* above nav */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90px; /* same as header */
+    background: #d9f0ff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    z-index: 1001; /* above nav */
   }
 
   nav {
     position: fixed;
-    top: 90px;
+    top: 90px; /* below logo */
     left: 0;
     width: 100%;
     background: #d9f0ff;
@@ -228,3 +235,4 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+	

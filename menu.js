@@ -1,18 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Initially hide burger
-  burger.style.display = "none";
-
-  // Show burger only after scrolling down
+  // Changed: Show burger menu only after scrolling down on mobile
+  let isScrolled = false;
+  
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 90) { // adjust threshold as needed
-      burger.style.display = "flex";
-    } else {
-      burger.style.display = "none";
-      nav.classList.remove("open"); // close menu if user scrolls back up
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (window.innerWidth <= 768) {
+      if (scrollTop > 50 && !isScrolled) {
+        burger.classList.add("visible");
+        isScrolled = true;
+      } else if (scrollTop <= 50 && isScrolled) {
+        burger.classList.remove("visible");
+        nav.classList.remove("open"); // Close menu when returning to top
+        isScrolled = false;
+      }
     }
   });
 
@@ -31,4 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Handle window resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      burger.classList.remove("visible");
+      nav.classList.remove("open");
+      isScrolled = false;
+    }
+  });
+
 });

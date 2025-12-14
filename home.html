@@ -53,10 +53,12 @@ body {
 /* Logo */
 .logo {
     margin-left: 20px;
+    flex: 1;
 }
 .logo img {
-    height: 70px;
-    width: auto;
+    max-height: 70px;
+    width: 100%;
+    object-fit: contain;
 }
 
 /* Nav menu */
@@ -192,11 +194,12 @@ footer a:hover {
         flex-direction: column;
         background-color: #d9f0ff;
         max-height: 0;
-        overflow: hidden;
+        overflow-y: auto; /* allow scroll */
+        overflow-x: hidden;
         transition: max-height 0.3s ease;
     }
     .nav-menu.nav-active {
-        max-height: 500px;
+        max-height: 80vh; /* enough height for scrolling */
     }
     .nav-menu li {
         width: 100%;
@@ -204,6 +207,8 @@ footer a:hover {
     .nav-menu li ul.dropdown-menu {
         position: static;
         display: none;
+        max-height: 300px;
+        overflow-y: auto;
     }
     .nav-menu li.active-dropdown ul.dropdown-menu {
         display: block;
@@ -292,12 +297,10 @@ footer a:hover {
 </header>
 
 <main>
-    <!-- Hero -->
     <section class="hero-section">
         <div class="container hero-inner">
             <div class="hero-text">
                 <h1>Protecting Your Future With Confidence</h1>
-
                 <ul class="hero-values">
                     <li>Est. 1998</li>
                     <li>Robust, transparent insurance, risk management solutions.</li>
@@ -306,7 +309,6 @@ footer a:hover {
                     <li>Fast, fair and human claims handling</li>
                     <li>Regulated, licensed and professionally governed</li>
                 </ul>
-
                 <a class="btn-primary" href="contact.html">Get a Quote</a>
                 <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
             </div>
@@ -317,10 +319,8 @@ footer a:hover {
         </div>
     </section>
 
-    <!-- Services summary -->
     <section class="section">
         <div class="container grid-3">
-
             <div class="card">
                 <h3>Life Insurance</h3>
                 <p>Flexible life solutions to preserve capital, replace income and provide for dependents. Click to continue ...</p>
@@ -328,7 +328,6 @@ footer a:hover {
                     Flexible life solutions to preserve capital, replace income and provide for dependents.
                 </div>
             </div>
-
             <div class="card">
                 <h3>Health Insurance</h3>
                 <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans. Click to continue ...</p>
@@ -336,7 +335,6 @@ footer a:hover {
                     Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.
                 </div>
             </div>
-
             <div class="card">
                 <h3>Business Insurance</h3>
                 <p>Property, liability, business interruption and employee benefit solutions. Click to continue ...</p>
@@ -344,7 +342,6 @@ footer a:hover {
                     Property, liability, business interruption and employee benefit solutions.
                 </div>
             </div>
-
         </div>
     </section>
 </main>
@@ -363,7 +360,6 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.toggle("nav-active");
     });
 
-    // Toggle card popup on mobile
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
         card.addEventListener("click", function() {
@@ -373,7 +369,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Toggle dropdowns on mobile
     const dropdowns = document.querySelectorAll(".nav-menu .dropdown > a");
     dropdowns.forEach(drop => {
         drop.addEventListener("click", function(e) {
@@ -387,4 +382,4 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 </body>
-</html>
+    </html>

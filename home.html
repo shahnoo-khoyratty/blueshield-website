@@ -1,190 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - BlueShield</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+/* ===================== RESET ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-<body>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  padding-top: 100px; /* space for fixed header */
+}
 
-<header>
-  <div class="nav-container">
+/* ===================== HEADER ===================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #d9f0ff;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
-    <!-- Burger (mobile only) -->
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+.nav-container {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding: 0 16px;
+  justify-content: space-between; /* logo left, nav right */
+}
 
-    <!-- Logo -->
-    <div class="logo">
-      <a href="home.html">
-        <img src="images/logo-blueshield.png" alt="BlueShield Logo">
-      </a>
-    </div>
+/* ===================== LOGO ===================== */
+.logo {
+  margin-left: 0; /* desktop fully left */
+}
 
-    <!-- Navigation -->
-    <nav>
-      <ul class="nav-menu">
+.logo img {
+  height: 60px;
+  width: auto;
+}
 
-        <li><a href="home.html">Home</a></li>
+/* ===================== BURGER (MOBILE ONLY) */
+.burger {
+  display: none;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-        <li class="dropdown">
-          <a href="#">About Us</a>
-          <ul class="dropdown-menu">
-            <li><a href="vision.html">Vision</a></li>
-            <li><a href="mission.html">Mission</a></li>
-            <li><a href="team.html">Meet Our Team</a></li>
-          </ul>
-        </li>
+.burger span {
+  height: 4px;
+  background: #003366;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
 
-        <li class="dropdown">
-          <a href="#">Our Insurance Areas</a>
-          <ul class="dropdown-menu">
-            <li><a href="life-insurance.html">Life Insurance</a></li>
-            <li><a href="health-insurance.html">Health Insurance</a></li>
-            <li><a href="business-insurance.html">Business Insurance</a></li>
-            <li><a href="special-coverage.html">Special Coverage</a></li>
-          </ul>
-        </li>
+/* ===================== NAV ===================== */
+nav {
+  margin-left: 24px;
+}
 
-        <li class="dropdown">
-          <a href="#">Resources</a>
-          <ul class="dropdown-menu">
-            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="glossary.html">Glossary</a></li>
-          </ul>
-        </li>
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
 
-        <li><a href="contact.html">Contact</a></li>
+.nav-menu li {
+  position: relative;
+}
 
-      </ul>
-    </nav>
+.nav-menu li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  padding: 8px 4px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
 
-  </div>
-</header>
+.nav-menu li a:hover {
+  color: #0077cc;
+  transform: translateY(-2px);
+  border-bottom: 2px solid #0077cc;
+}
 
-<main>
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-  <!-- HERO -->
-  <section class="hero-section">
-    <div class="hero-inner">
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 
-      <div class="hero-text">
-        <h1>Protecting Your Future With Confidence</h1>
+.dropdown-menu li a {
+  padding: 10px 16px;
+  display: block;
+  border: none;
+}
 
-        <ul class="hero-values">
-          <li>Est. 1998</li>
-          <li>Robust, transparent insurance, risk management solutions.</li>
-          <li>Crafted for individuals, families and businesses</li>
-          <li>Tailored policies that match real needs</li>
-          <li>Fast, fair and human claims handling</li>
-          <li>Regulated, licensed and professionally governed</li>
-        </ul>
+/* ===================== HERO ===================== */
+.hero-section {
+  background: linear-gradient(180deg, #ffffff, #e6f8ff);
+  padding: 60px 20px;
+}
 
-        <a class="btn-primary" href="contact.html">Get a Quote</a>
-        <p class="trust-badge">
-          Licensed by the Financial Services Commission, Mauritius
-        </p>
-      </div>
+.hero-inner {
+  display: flex;
+  gap: 30px;
+}
 
-      <div class="hero-image">
-        <img src="images/hero-family.jpg" alt="Family protected by BlueShield">
-      </div>
+.hero-text {
+  flex: 1;
+}
 
-    </div>
-  </section>
+/* Bigger "Get a Quote" button */
+.hero-text .btn-primary {
+  background-color: #b3e7ff;
+  color: #003366;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
 
-  <!-- SERVICES -->
-  <section class="section">
-    <div class="grid-3">
+.hero-text .btn-primary:hover {
+  background-color: #99ddff;
+}
 
-      <!-- LIFE -->
-      <div class="card">
-        <img src="images/service-life.jpg" alt="Life Insurance">
-        <h3>Life Insurance</h3>
-        <p>
-          Flexible life solutions to preserve capital, replace income and provide for dependents.
-          <br><strong>Click for more ...</strong>
-        </p>
-        <div class="popup">
-          Term Life and Whole Life options designed for income replacement,
-          family protection and long-term estate planning.
-        </div>
-      </div>
+.hero-image img {
+  max-width: 500px;
+  width: 100%;
+}
 
-      <!-- HEALTH -->
-      <div class="card">
-        <img src="images/service-health.jpg" alt="Health Insurance">
-        <h3>Health Insurance</h3>
-        <p>
-          Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.
-          <br><strong>Click for more ...</strong>
-        </p>
-        <div class="popup">
-          Inpatient, outpatient, emergency, specialist care and assisted claims handling.
-        </div>
-      </div>
+/* ===================== SECTIONS ===================== */
+.section {
+  padding: 60px 20px;
+}
 
-      <!-- BUSINESS -->
-      <div class="card">
-        <img src="images/service-business.jpg" alt="Business Insurance">
-        <h3>Business Insurance</h3>
-        <p>
-          Property, liability, business interruption and employee benefit solutions.
-          <br><strong>Click for more ...</strong>
-        </p>
-        <div class="popup">
-          Tailored protection for SMEs and large organisations, including cyber and liability cover.
-        </div>
-      </div>
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-    </div>
-  </section>
+.card {
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+}
 
-  <!-- BLOG -->
-  <section class="section">
-    <div class="container">
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
 
-      <h2>Insights & Updates</h2>
+/* Popup (desktop hover) */
+.card .popup {
+  display: none;
+  position: absolute;
+  top: -160px;
+  background: #003366;
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 8px;
+}
 
-      <div class="grid-3">
+.card:hover .popup {
+  display: block;
+}
 
-        <div class="card">
-          <a href="blog.html#term-vs-whole-life">
-            <img src="images/blog-placeholder1.jpg" alt="Understanding Term vs Whole Life">
-            <h3>Understanding Term vs Whole Life</h3>
-            <p>An in-depth guide to choosing the right lifetime protection strategy.</p>
-          </a>
-        </div>
+/* ===================== FOOTER ===================== */
+footer {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-        <div class="card">
-          <a href="blog.html#health-insurance-tips">
-            <img src="images/blog-placeholder.jpg" alt="Health Insurance Tips">
-            <h3>Health Insurance Tips for 2025</h3>
-            <p>How to evaluate networks, outpatient benefits and co-payment structures.</p>
-          </a>
-        </div>
+/* ===================== BLOG CENTERING ===================== */
+.section .container .grid-3 {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 40px; /* equal spacing between cards */
+}
 
-      </div>
+/* ===================== MOBILE ===================== */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    z-index: 1002;
+  }
 
-    </div>
-  </section>
+  .logo {
+    margin-left: 60px; /* leave space for burger */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90px;
+    background: #d9f0ff;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    z-index: 1001;
+  }
 
-</main>
+  .logo img {
+    height: 50px;
+  }
 
-<footer>
-  <p>
-    &copy; 2025 BlueShield Insurance Group. All rights reserved |
-    <a href="contact.html" style="color:#ffffff;">Contact</a>
-  </p>
-</footer>
+  nav {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #d9f0ff;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
 
-<script src="menu.js"></script>
-</body>
-</html>
+  nav.open {
+    transform: translateY(0);
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-menu li a {
+    padding: 14px 16px;
+    border-bottom: 1px solid #b3e7ff;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #e6f8ff;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== DESKTOP NAV RIGHT ===================== */
+@media (min-width: 769px) {
+  nav {
+    margin-left: auto; /* push nav to right */
+  }
+}
 	

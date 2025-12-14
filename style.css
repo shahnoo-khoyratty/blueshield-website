@@ -24,17 +24,18 @@ header {
 .nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 90px;
   padding: 0 16px;
 }
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0; /* desktop: fully left */
+  margin-left: 0;
 }
 
 .logo img {
-  height: 50px; /* reduced size to not cover burger */
+  height: 60px;
   width: auto;
 }
 
@@ -46,7 +47,7 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1002; /* above nav */
+  z-index: 1002;
 }
 
 .burger span {
@@ -126,12 +127,16 @@ nav {
   display: inline-block;
   background: #d9f0ff;
   color: #003366;
+  font-weight: 700;
   padding: 12px 24px;
-  font-size: 1.2rem;
-  font-weight: 600;
   border-radius: 8px;
+  margin-top: 16px;
   text-decoration: none;
-  margin-top: 20px;
+  transition: 0.2s ease;
+}
+
+.hero-text .btn-primary:hover {
+  background: #b3e7ff;
 }
 
 .hero-image img {
@@ -148,6 +153,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-items: center; /* center cards for Insights section */
 }
 
 .card {
@@ -155,6 +161,8 @@ nav {
   border-radius: 12px;
   padding: 20px;
   position: relative;
+  width: 100%;
+  max-width: 320px;
 }
 
 .card img {
@@ -162,19 +170,19 @@ nav {
   border-radius: 8px;
 }
 
-/* Popup (desktop hover) - positioned halfway inside the card, top half */
+/* Popup (desktop & mobile) - halfway up the card */
 .card .popup {
   display: none;
   position: absolute;
-  top: 20%; /* halfway in top half */
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   background: #003366;
   color: #ffffff;
   padding: 14px;
   border-radius: 8px;
-  width: 90%;
-  box-sizing: border-box;
+  width: 80%;
+  text-align: center;
   z-index: 10;
 }
 
@@ -193,18 +201,16 @@ footer {
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
-  /* Burger */
   .burger {
     display: flex;
   }
 
-  /* Logo fixed on top, covers top fully */
   .logo {
     margin-left: 12px;
     position: fixed;
     top: 0;
     left: 0;
-    height: 90px; /* same as header */
+    height: 90px;
     background: #d9f0ff;
     width: 100%;
     display: flex;
@@ -215,7 +221,7 @@ footer {
 
   nav {
     position: fixed;
-    top: 90px; /* below logo */
+    top: 90px;
     left: 0;
     width: 100%;
     background: #d9f0ff;
@@ -254,22 +260,22 @@ footer {
   }
 }
 
-/* ===================== DESKTOP NAVIGATION ADJUSTMENTS ===================== */
+/* ===================== DESKTOP ===================== */
 @media (min-width: 769px) {
-  .nav-container {
-    justify-content: space-between;
-  }
-
-  nav {
-    margin-left: auto;
-  }
 
   .nav-menu {
-    justify-content: flex-end;
+    margin-left: auto; /* align nav right */
   }
-  
-  .grid-3 {
-    justify-items: center; /* center the cards in services/blog */
+
+  .hero-text .btn-primary {
+    font-size: 1.2em;
+    padding: 16px 32px;
   }
+
+  /* Center Insights cards */
+  .section .grid-3 {
+    justify-content: center;
+  }
+
 }
 	

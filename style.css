@@ -178,6 +178,7 @@ footer {
 }
 
 /* ===================== MOBILE ===================== */
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
   .burger {
@@ -186,7 +187,7 @@ footer {
 
   .logo {
     margin-left: 12px;
-    margin-right: auto; /* Changed: keep logo on left for mobile too */
+    margin-right: auto;
   }
 
   nav {
@@ -213,10 +214,26 @@ footer {
     border-bottom: 1px solid #b3e7ff;
   }
 
+  /* Hide dropdown menus by default on mobile */
   .dropdown-menu {
     position: static;
     box-shadow: none;
     background: #e6f8ff;
+    display: none; /* Add this line */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  /* Show dropdown only when parent has 'open' class */
+  .dropdown.open .dropdown-menu {
+    display: block;
+    max-height: 200px;
+  }
+
+  /* Remove desktop hover effect on mobile */
+  .dropdown:hover .dropdown-menu {
+    display: none;
   }
 
   .hero-inner {

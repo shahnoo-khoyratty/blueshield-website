@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("nav");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Changed: Show burger menu only after scrolling down on mobile
+  // Show burger menu only after scrolling down on mobile
   let isScrolled = false;
   
   window.addEventListener("scroll", () => {
@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
         isScrolled = true;
       } else if (scrollTop <= 50 && isScrolled) {
         burger.classList.remove("visible");
-        nav.classList.remove("open"); // Close menu when returning to top
+        nav.classList.remove("open");
+        // Close all dropdowns when menu closes
+        dropdowns.forEach(drop => drop.classList.remove("open"));
         isScrolled = false;
       }
     }
@@ -25,15 +27,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Burger toggle
   burger.addEventListener("click", () => {
     nav.classList.toggle("open");
+    // Close all dropdowns when burger menu is toggled
+    if (!nav.classList.contains("open")) {
+      dropdowns.forEach(drop => drop.classList.remove("open"));
+    }
   });
 
-  // Mobile dropdown toggle
+  // Mobile dropdown toggle - only works when nav is open
   dropdowns.forEach(drop => {
     const link = drop.querySelector("a");
     link.addEventListener("click", e => {
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        drop.classList.toggle("open");
+        // Only allow dropdown toggle if nav menu is open
+        if (nav.classList.contains("open")) {
+          drop.classList.toggle("open");
+        }
       }
     });
   });
@@ -43,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 768) {
       burger.classList.remove("visible");
       nav.classList.remove("open");
+      dropdowns.forEach(drop => drop.classList.remove("open"));
       isScrolled = false;
     }
   });

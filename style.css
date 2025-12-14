@@ -30,7 +30,9 @@ header {
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-right: auto; /* Changed: logo now on complete left side for desktop */
+  margin-left: 0; /* desktop: fully left */
+  position: relative;
+  z-index: 1002; /* stays above nav */
 }
 
 .logo img {
@@ -46,12 +48,7 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
-  opacity: 0; /* Changed: initially hidden on mobile */
-  transition: opacity 0.3s ease;
-}
-
-.burger.visible {
-  opacity: 1; /* Changed: only visible when scrolled down */
+  z-index: 1001; /* above nav */
 }
 
 .burger span {
@@ -178,16 +175,17 @@ footer {
 }
 
 /* ===================== MOBILE ===================== */
-/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
   .burger {
     display: flex;
+    z-index: 1001; /* above nav */
   }
 
   .logo {
     margin-left: 12px;
-    margin-right: auto;
+    position: relative;
+    z-index: 1002; /* above nav */
   }
 
   nav {
@@ -198,6 +196,7 @@ footer {
     background: #d9f0ff;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
+    z-index: 1000; /* behind logo */
   }
 
   nav.open {
@@ -214,26 +213,10 @@ footer {
     border-bottom: 1px solid #b3e7ff;
   }
 
-  /* Hide dropdown menus by default on mobile */
   .dropdown-menu {
     position: static;
     box-shadow: none;
     background: #e6f8ff;
-    display: none; /* Add this line */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  /* Show dropdown only when parent has 'open' class */
-  .dropdown.open .dropdown-menu {
-    display: block;
-    max-height: 200px;
-  }
-
-  /* Remove desktop hover effect on mobile */
-  .dropdown:hover .dropdown-menu {
-    display: none;
   }
 
   .hero-inner {

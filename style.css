@@ -17,7 +17,7 @@ header {
   top: 0;
   width: 100%;
   background: #d9f0ff;
-  z-index: 1001;
+  z-index: 1000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -26,20 +26,19 @@ header {
   align-items: center;
   height: 90px;
   padding: 0 16px;
-  justify-content: space-between; /* logo left, nav right */
 }
 
 /* ===================== LOGO ===================== */
 .logo {
-  margin-left: 0; /* desktop fully left */
+  margin-left: 0; /* desktop: fully left */
 }
 
 .logo img {
-  height: 60px;
+  height: 50px; /* reduced size to not cover burger */
   width: auto;
 }
 
-/* ===================== BURGER (MOBILE ONLY) */
+/* ===================== BURGER (MOBILE ONLY) ===================== */
 .burger {
   display: none;
   width: 32px;
@@ -47,6 +46,7 @@ header {
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1002; /* above nav */
 }
 
 .burger span {
@@ -65,6 +65,7 @@ nav {
   list-style: none;
   display: flex;
   gap: 28px;
+  align-items: center;
 }
 
 .nav-menu li {
@@ -121,22 +122,16 @@ nav {
   flex: 1;
 }
 
-/* Bigger "Get a Quote" button */
 .hero-text .btn-primary {
-  background-color: #b3e7ff;
-  color: #003366;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 8px;
   display: inline-block;
-  margin-top: 16px;
+  background: #d9f0ff;
+  color: #003366;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
   text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.hero-text .btn-primary:hover {
-  background-color: #99ddff;
+  margin-top: 20px;
 }
 
 .hero-image img {
@@ -167,15 +162,20 @@ nav {
   border-radius: 8px;
 }
 
-/* Popup (desktop hover) */
+/* Popup (desktop hover) - positioned halfway inside the card, top half */
 .card .popup {
   display: none;
   position: absolute;
-  top: -160px;
+  top: 20%; /* halfway in top half */
+  left: 50%;
+  transform: translateX(-50%);
   background: #003366;
   color: #ffffff;
   padding: 14px;
   border-radius: 8px;
+  width: 90%;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .card:hover .popup {
@@ -190,46 +190,38 @@ footer {
   text-align: center;
 }
 
-/* ===================== BLOG CENTERING ===================== */
-.section .container .grid-3 {
-  display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 40px; /* equal spacing between cards */
-}
-
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
+
+  /* Burger */
   .burger {
     display: flex;
-    z-index: 1002;
   }
 
+  /* Logo fixed on top, covers top fully */
   .logo {
-    margin-left: 60px; /* leave space for burger */
+    margin-left: 12px;
     position: fixed;
     top: 0;
     left: 0;
-    height: 90px;
+    height: 90px; /* same as header */
     background: #d9f0ff;
+    width: 100%;
     display: flex;
     align-items: center;
     padding-left: 12px;
-    z-index: 1001;
-  }
-
-  .logo img {
-    height: 50px;
+    z-index: 1001; /* above nav */
   }
 
   nav {
     position: fixed;
-    top: 90px;
+    top: 90px; /* below logo */
     left: 0;
     width: 100%;
     background: #d9f0ff;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-    z-index: 1000;
+    z-index: 1000; /* behind logo */
   }
 
   nav.open {
@@ -262,10 +254,22 @@ footer {
   }
 }
 
-/* ===================== DESKTOP NAV RIGHT ===================== */
+/* ===================== DESKTOP NAVIGATION ADJUSTMENTS ===================== */
 @media (min-width: 769px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
   nav {
-    margin-left: auto; /* push nav to right */
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    justify-content: flex-end;
+  }
+  
+  .grid-3 {
+    justify-items: center; /* center the cards in services/blog */
   }
 }
 	

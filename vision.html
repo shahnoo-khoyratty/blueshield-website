@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -6,7 +6,7 @@
 <title>Vision — BlueShield Insurance Group</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== Vision-specific overrides ===== */
+/* ===== Vision Page Overrides ===== */
 
 /* Fixed header + pale blue background */
 header {
@@ -26,7 +26,7 @@ body {
     background: #f4f8ff;
 }
 
-/* Navigation dropdown stability */
+/* Navigation dropdown */
 nav ul.nav-menu li:hover > ul.dropdown-menu,
 nav ul.nav-menu li ul.dropdown-menu:hover {
     display: block !important;
@@ -43,13 +43,14 @@ nav ul.nav-menu li ul.dropdown-menu {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Vision header image */
+/* Header image */
 .vision-header {
     width: 100%;
     height: auto;
     display: block;
     margin-bottom: 40px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 /* Section spacing */
@@ -65,19 +66,32 @@ nav ul.nav-menu li ul.dropdown-menu {
     color: #003366;
 }
 
-/* Paragraphs */
+/* Paragraphs and list */
 .section p {
     margin-bottom: 12px;
     line-height: 1.6;
 }
-
-/* Styled list for vision points */
 .vision-list {
     list-style-type: disc;
     padding-left: 20px;
 }
 .vision-list li {
     margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
 }
 </style>
 </head>
@@ -131,10 +145,8 @@ nav ul.nav-menu li ul.dropdown-menu {
 </header>
 
 <main>
-    <!-- Vision header image -->
     <img class="vision-header" src="images/vision-header.jpg" alt="Our Vision Header">
-    
-    <!-- Vision content -->
+
     <section class="section">
         <div class="container">
             <h1>OUR VISION</h1>

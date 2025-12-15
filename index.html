@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - BlueShield</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Home page specific fixes ===== */
+
+/* Ensure header spacing for fixed header */
+body {
+  padding-top: 100px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Hero inner alignment */
+.hero-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-text, .hero-image {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+/* Grid for services and blog */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Popup on hover */
+.card .popup {
+  display: none;
+  position: absolute;
+  background: #003366;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  width: 260px;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.card:hover .popup {
+  display: block;
+}
+
+/* Blog cards centered and equidistant */
+.grid-3.blog-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .grid-3.blog-cards {
+    gap: 20px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -19,15 +86,14 @@
       <span></span>
     </div>
 
-    <!-- Logo (NOT clickable) -->
+    <!-- Logo -->
     <div class="logo">
-      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+      <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
     </div>
 
     <!-- Navigation -->
     <nav>
       <ul class="nav-menu">
-
         <li><a href="home.html">Home</a></li>
 
         <li class="dropdown">
@@ -50,6 +116,16 @@
         </li>
 
         <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
           <a href="#">Resources</a>
           <ul class="dropdown-menu">
             <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
@@ -59,7 +135,6 @@
         </li>
 
         <li><a href="contact.html">Contact</a></li>
-
       </ul>
     </nav>
 
@@ -74,7 +149,6 @@
 
       <div class="hero-text">
         <h1>Protecting Your Future With Confidence</h1>
-
         <ul class="hero-values">
           <li>Est. 1998</li>
           <li>Robust, transparent insurance, risk management solutions.</li>
@@ -83,12 +157,8 @@
           <li>Fast, fair and human claims handling</li>
           <li>Regulated, licensed and professionally governed</li>
         </ul>
-
         <a class="btn-primary" href="contact.html">Get a Quote</a>
-
-        <p class="trust-badge">
-          Licensed by the Financial Services Commission, Mauritius
-        </p>
+        <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
       </div>
 
       <div class="hero-image">
@@ -102,7 +172,7 @@
   <section class="section">
     <div class="container">
       <div class="grid-3">
-
+        <!-- Life Insurance Card -->
         <div class="card">
           <img src="images/service-life.jpg" alt="Life Insurance">
           <h3>Life Insurance</h3>
@@ -116,6 +186,7 @@
           </div>
         </div>
 
+        <!-- Health Insurance Card -->
         <div class="card">
           <img src="images/service-health.jpg" alt="Health Insurance">
           <h3>Health Insurance</h3>
@@ -128,6 +199,7 @@
           </div>
         </div>
 
+        <!-- Business Insurance Card -->
         <div class="card">
           <img src="images/service-business.jpg" alt="Business Insurance">
           <h3>Business Insurance</h3>
@@ -150,7 +222,7 @@
 
       <h2>Insights & Updates</h2>
 
-      <div class="grid-3">
+      <div class="grid-3 blog-cards">
 
         <div class="card">
           <a href="blog.html#term-vs-whole-life">

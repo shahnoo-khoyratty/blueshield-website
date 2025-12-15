@@ -6,16 +6,7 @@
 <title>Home - BlueShield</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== Custom styles for home page ===== */
-
-/* Reset and container */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Header */
+/* ===== Header & Navigation ===== */
 header {
   position: fixed;
   top: 0;
@@ -27,8 +18,10 @@ header {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 10px 20px;
 }
 
@@ -36,103 +29,84 @@ header {
   height: 50px;
 }
 
-/* Navigation menu */
-nav ul.nav-menu {
-  display: flex;
+.nav-menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex;
   gap: 20px;
 }
 
-nav ul.nav-menu li {
+.nav-menu li {
   position: relative;
 }
 
-nav ul.nav-menu li a {
+.nav-menu li a {
   text-decoration: none;
   color: #003366;
   font-weight: bold;
-  padding: 10px 5px;
+  padding: 8px 12px;
+  display: block;
 }
 
-nav ul.nav-menu li a:hover {
+.nav-menu li a:hover {
   color: #007acc;
 }
 
-/* Dropdown menu */
-nav ul.nav-menu li ul.dropdown-menu {
+.dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background: #ffffff;
-  border-radius: 5px;
-  padding: 10px 0;
   min-width: 180px;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1001;
+  z-index: 100;
 }
 
-nav ul.nav-menu li:hover > ul.dropdown-menu {
-  display: block;
-}
-
-nav ul.nav-menu li ul.dropdown-menu li {
-  width: 100%;
-}
-
-nav ul.nav-menu li ul.dropdown-menu li a {
-  display: block;
-  padding: 8px 15px;
-  font-weight: normal;
+.dropdown-menu li a {
+  padding: 8px 12px;
   color: #003366;
 }
 
-nav ul.nav-menu li ul.dropdown-menu li a:hover {
-  background-color: #d9f0ff;
+.nav-menu li.dropdown:hover > .dropdown-menu {
+  display: block;
 }
 
-/* Burger menu (mobile) */
+/* Burger for mobile */
 .burger {
   display: none;
   flex-direction: column;
+  gap: 4px;
   cursor: pointer;
-  gap: 5px;
 }
 
 .burger span {
   width: 25px;
   height: 3px;
-  background-color: #003366;
-  display: block;
+  background: #003366;
 }
 
-/* Show/Hide menu */
-.nav-menu.show {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-nav ul.nav-menu li.dropdown.show > ul {
-  display: block;
-}
-
-/* HERO */
+/* ===== Hero ===== */
 .hero-section {
-  margin-top: 80px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  padding-top: 120px;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-text {
   flex: 1 1 400px;
-  max-width: 600px;
-  padding: 20px;
 }
 
 .hero-text h1 {
@@ -143,41 +117,45 @@ nav ul.nav-menu li.dropdown.show > ul {
 .hero-values {
   margin: 15px 0;
   padding-left: 20px;
-}
-
-.hero-values li {
-  margin-bottom: 10px;
-}
-
-.btn-primary {
-  display: inline-block;
-  background-color: #007acc;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
+  color: #003366;
 }
 
 .hero-image img {
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   border-radius: 12px;
 }
 
-/* SERVICES GRID */
+/* ===== Sections ===== */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #003366;
+}
+
 .grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
-  background: #ffffff;
-  padding: 20px;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 20px;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
@@ -185,7 +163,12 @@ nav ul.nav-menu li.dropdown.show > ul {
   box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
 
-/* Popup */
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
 .popup {
   display: none;
   position: absolute;
@@ -194,7 +177,7 @@ nav ul.nav-menu li.dropdown.show > ul {
   width: 280px;
   background: #003366;
   color: #fff;
-  padding: 15px;
+  padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   z-index: 10;
@@ -204,74 +187,67 @@ nav ul.nav-menu li.dropdown.show > ul {
   display: block;
 }
 
-/* BLOG section */
-h2.section-title {
-  text-align: center;
-  color: #003366;
-  margin-bottom: 30px;
-}
-
-.grid-3.blog-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 20px;
-  justify-items: center;
-  text-align: center;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
   background: #003366;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-footer a {
-  color: #aad7ff;
-  text-decoration: none;
-}
-
-/* Responsive */
-@media(max-width:768px) {
-  .burger {
-    display: flex;
-  }
-
-  nav ul.nav-menu {
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .nav-menu {
     display: none;
     flex-direction: column;
     gap: 10px;
+    background: #d9f0ff;
     width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
   }
-
-  nav ul.nav-menu li ul.dropdown-menu {
+  .nav-menu.show {
+    display: flex;
+  }
+  .burger {
+    display: flex;
+  }
+  .dropdown-menu {
     position: static;
-    box-shadow: none;
-    padding-left: 15px;
+  }
+  .nav-menu li.dropdown.show > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-inner {
+    flex-direction: column;
+  }
+  .hero-image img {
+    max-width: 100%;
   }
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
     <div class="burger" id="burger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
-    <div class="logo">
-      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
-    </div>
-
     <nav>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="home.html">Home</a></li>
-
         <li class="dropdown">
           <a href="#">About Us</a>
           <ul class="dropdown-menu">
@@ -280,7 +256,6 @@ footer a {
             <li><a href="team.html">Meet Our Team</a></li>
           </ul>
         </li>
-
         <li class="dropdown">
           <a href="#">Our Insurance Areas</a>
           <ul class="dropdown-menu">
@@ -290,7 +265,6 @@ footer a {
             <li><a href="special-coverage.html">Special Coverage</a></li>
           </ul>
         </li>
-
         <li class="dropdown">
           <a href="#">Products & Solutions</a>
           <ul class="dropdown-menu">
@@ -300,7 +274,6 @@ footer a {
             <li><a href="policy-customization.html">Policy Customization</a></li>
           </ul>
         </li>
-
         <li class="dropdown">
           <a href="#">Resources</a>
           <ul class="dropdown-menu">
@@ -309,7 +282,6 @@ footer a {
             <li><a href="glossary.html">Glossary</a></li>
           </ul>
         </li>
-
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -317,24 +289,25 @@ footer a {
 </header>
 
 <main>
-
   <!-- HERO -->
   <section class="hero-section">
-    <div class="hero-text">
-      <h1>Protecting Your Future With Confidence</h1>
-      <ul class="hero-values">
-        <li>Est. 1998</li>
-        <li>Robust, transparent insurance, risk management solutions.</li>
-        <li>Crafted for individuals, families and businesses</li>
-        <li>Tailored policies that match real needs</li>
-        <li>Fast, fair and human claims handling</li>
-        <li>Regulated, licensed and professionally governed</li>
-      </ul>
-      <a class="btn-primary" href="contact.html">Get a Quote</a>
-      <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
-    </div>
-    <div class="hero-image">
-      <img src="images/hero-family.jpg" alt="Family protected by BlueShield">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Protecting Your Future With Confidence</h1>
+        <ul class="hero-values">
+          <li>Est. 1998</li>
+          <li>Robust, transparent insurance, risk management solutions.</li>
+          <li>Crafted for individuals, families and businesses</li>
+          <li>Tailored policies that match real needs</li>
+          <li>Fast, fair and human claims handling</li>
+          <li>Regulated, licensed and professionally governed</li>
+        </ul>
+        <a class="btn-primary" href="contact.html">Get a Quote</a>
+        <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-family.jpg" alt="Family protected by BlueShield">
+      </div>
     </div>
   </section>
 
@@ -347,14 +320,12 @@ footer a {
         <p>Flexible life solutions to preserve capital, replace income and provide for dependents.<br><strong>Click for more ...</strong></p>
         <div class="popup">Term Life and Whole Life options designed for income replacement, family protection and long-term estate planning.</div>
       </div>
-
       <div class="card">
         <img src="images/service-health.jpg" alt="Health Insurance">
         <h3>Health Insurance</h3>
         <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.<br><strong>Click for more ...</strong></p>
         <div class="popup">Inpatient, outpatient, emergency, specialist care and assisted claims handling.</div>
       </div>
-
       <div class="card">
         <img src="images/service-business.jpg" alt="Business Insurance">
         <h3>Business Insurance</h3>
@@ -366,8 +337,8 @@ footer a {
 
   <!-- BLOG -->
   <section class="section">
-    <h2 class="section-title">Insights & Updates</h2>
-    <div class="grid-3 blog-cards">
+    <h2>Insights & Updates</h2>
+    <div class="grid-3">
       <div class="card">
         <a href="blog.html#term-vs-whole-life">
           <img src="images/blog-placeholder1.jpg" alt="Understanding Term vs Whole Life">
@@ -384,33 +355,31 @@ footer a {
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
-  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html">Contact</a></p>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
 </footer>
 
 <script>
-// Burger toggle
-const burger = document.getElementById('burger');
-const navMenu = document.getElementById('nav-menu');
+  // Burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
 
-burger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
-
-// Mobile dropdown toggle
-document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
-  drop.addEventListener('click', (e) => {
-    if(window.innerWidth <= 768) {
-      e.preventDefault();
-      drop.parentElement.classList.toggle('show');
-    }
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
   });
-});
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
 </script>
 
 </body>
 </html>
-	

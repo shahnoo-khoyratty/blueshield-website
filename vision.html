@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -6,7 +6,7 @@
 <title>Vision — BlueShield Insurance Group</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== Vision-specific overrides ===== */
+/* ===== Vision Page Overrides ===== */
 
 /* Fixed header + pale blue background */
 header {
@@ -26,7 +26,7 @@ body {
     background: #f4f8ff;
 }
 
-/* Navigation dropdown stability */
+/* Navigation dropdown */
 nav ul.nav-menu li:hover > ul.dropdown-menu,
 nav ul.nav-menu li ul.dropdown-menu:hover {
     display: block !important;
@@ -43,13 +43,14 @@ nav ul.nav-menu li ul.dropdown-menu {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Vision header image */
+/* Header image */
 .vision-header {
     width: 100%;
     height: auto;
     display: block;
     margin-bottom: 40px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 /* Section spacing */
@@ -65,13 +66,11 @@ nav ul.nav-menu li ul.dropdown-menu {
     color: #003366;
 }
 
-/* Paragraphs */
+/* Paragraphs and list */
 .section p {
     margin-bottom: 12px;
     line-height: 1.6;
 }
-
-/* Styled list for vision points */
 .vision-list {
     list-style-type: disc;
     padding-left: 20px;
@@ -79,16 +78,127 @@ nav ul.nav-menu li ul.dropdown-menu {
 .vision-list li {
     margin-bottom: 12px;
 }
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* ===== Mobile Navigation (burger, logo handling) ===== */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.logo img {
+    height: 50px;
+}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #003366;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+.nav-menu li a:hover {
+    color: #007acc;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.dropdown-menu li a {
+    padding: 8px 12px;
+    color: #003366;
+}
+.nav-menu li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* ===== Mobile CSS ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #d9f0ff;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+    .nav-menu.show {
+        display: flex;
+    }
+    .burger {
+        display: flex;
+    }
+    .dropdown-menu {
+        position: static;
+    }
+    .nav-menu li.dropdown.show > .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+    }
+}
 </style>
 </head>
 <body>
+
 <header>
-    <div class="container nav-container">
+    <div class="nav-container">
+        <!-- Logo -->
         <div class="logo">
-            <a href="home.html"><img src="images/logo-blueshield.png" alt="BlueShield Logo"></a>
+            <img src="images/logo-blueshield.png" alt="BlueShield Logo">
         </div>
+        <!-- Burger -->
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- Navigation -->
         <nav>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="home.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#">About Us</a>
@@ -131,10 +241,7 @@ nav ul.nav-menu li ul.dropdown-menu {
 </header>
 
 <main>
-    <!-- Vision header image -->
     <img class="vision-header" src="images/vision-header.jpg" alt="Our Vision Header">
-    
-    <!-- Vision content -->
     <section class="section">
         <div class="container">
             <h1>OUR VISION</h1>
@@ -154,6 +261,26 @@ nav ul.nav-menu li ul.dropdown-menu {
         <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
     </div>
 </footer>
+
+<script>
+    // Burger toggle
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+        drop.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                drop.parentElement.classList.toggle('show');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
 	

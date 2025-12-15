@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risk Management - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Risk Management page overrides ===== */
+
+/* Fixed header + pale blue background */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Body spacing for fixed header */
+body {
+    padding-top: 100px;
+}
+
+/* Header image full-width */
+.risk-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Section spacing */
+.section {
+    padding: 80px 20px;
+}
+
+/* Grid layout for cards */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 24px;
+}
+
+/* Card styling */
+.card {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Tooltip / popup - halfway over card like home.html */
+.card .tooltip {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #003366;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    width: 80%;
+    text-align: center;
+    z-index: 10;
+}
+.card:hover .tooltip {
+    display: block;
+}
+
+/* Instructions text standardized */
+.instructions {
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Footer standardization */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Dropdown hover stability */
+nav ul.nav-menu li:hover > ul.dropdown-menu,
+nav ul.nav-menu li ul.dropdown-menu:hover {
+    display: block !important;
+}
+nav ul.nav-menu li ul.dropdown-menu {
+    margin-top: 2px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+    .card .tooltip {
+        position: static;
+        width: auto;
+        margin-bottom: 10px;
+        transform: none;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="container nav-container">
+        <div class="logo">
+            <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Our Insurance Areas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="life-insurance.html">Life Insurance</a></li>
+                        <li><a href="health-insurance.html">Health Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
+                        <li><a href="special-coverage.html">Special Coverage</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Products & Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                        <li><a href="risk-management.html" class="active">Risk Management</a></li>
+                        <li><a href="policy-customization.html">Policy Customization</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Full-width header image -->
+    <img class="risk-header" src="images/risk-management.jpg" alt="Risk Management Header">
+
+    <section class="section">
+        <div class="container">
+            <h1>RISK MANAGEMENT</h1>
+            <p class="instructions">Click on a rectangle to see further details</p>
+            <p>Our professional risk management services identify exposures and implement mitigation strategies to reduce claim frequency and financial impact. We combine audits, training and loss-prevention programs tailored to each client.</p>
+
+            <div class="grid-2" style="margin-top:12px">
+                <div class="card">
+                    <h3>Risk Assessments</h3>
+                    <p>Identify operational, property and liability exposures.</p>
+                    <div class="tooltip">
+                        Comprehensive site inspections and operational reviews to identify physical hazards, process weaknesses, regulatory gaps and liability risks.
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Loss Prevention & Continuity</h3>
+                    <p>Reduce frequency and severity of claims.</p>
+                    <div class="tooltip">
+                        Design and implementation of loss-prevention programs, staff training, emergency planning, and business continuity frameworks to protect operations.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
+    </div>
+</footer>
+</body>
+</html>
+	

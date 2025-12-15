@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQs - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Mobile header, burger, and logo handling ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.logo img {
+    height: 50px;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+.nav-menu li a:hover {
+    color: #007acc;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.dropdown-menu li a {
+    padding: 8px 12px;
+    color: #003366;
+}
+.nav-menu li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+/* Burger for mobile */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #003366;
+}
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #d9f0ff;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+    .nav-menu.show {
+        display: flex;
+    }
+    .burger {
+        display: flex;
+    }
+    .dropdown-menu {
+        position: static;
+    }
+    .nav-menu li.dropdown.show > .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+        </div>
+
+        <!-- Burger -->
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Our Insurance Areas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="life-insurance.html">Life Insurance</a></li>
+                        <li><a href="health-insurance.html">Health Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
+                        <li><a href="special-coverage.html">Special Coverage</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Products & Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                        <li><a href="policy-customization.html">Policy Customization</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+                        <li><a href="faqs.html" class="active">FAQs</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <img class="faq-header" src="images/faq.jpg" alt="FAQs Header">
+    <section class="section">
+        <div class="container">
+            <h1>FREQUENTLY ASKED QUESTIONS</h1>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>How do I make a claim?</h3>
+                    <p>Contact our claims team via phone or email. We will advise on the required documentation and next steps, and assign a claims manager to your case.</p>
+                </div>
+                <div class="card">
+                    <h3>Can I change my coverage later?</h3>
+                    <p>Yes. Most policies can be adjusted at renewal or by endorsement during the policy term; contact your adviser to request changes and to receive cost implications.</p>
+                </div>
+                <div class="card">
+                    <h3>Do you provide corporate group plans?</h3>
+                    <p>Yes. We design and administer group health and life programs for organisations of various sizes and needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        &copy; 2025 BlueShield Insurance Group. All rights reserved |
+        <a href="contact.html" style="color:#ffffff;">Contact</a>
+    </p>
+</footer>
+
+<script>
+  // Burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+	

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Insurance - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Health Insurance Page Overrides ===== */
+
+/* Fixed header + pale blue background */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Body spacing for fixed header */
+body {
+    padding-top: 100px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f8ff;
+}
+
+/* Header image */
+.health-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Section spacing */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section h1, .section h2, .section h3 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+.section p {
+    margin-bottom: 16px;
+}
+
+/* Grid layout for cards */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 24px;
+}
+
+/* Card styling */
+.card {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Popups for extra detail */
+.card .popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #003366;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+    z-index: 10;
+}
+.card:hover .popup {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Navigation and dropdown */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    padding: 0 16px;
+}
+.logo img {
+    height: 60px;
+    pointer-events: none;
+}
+.burger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1002;
+}
+.burger span {
+    height: 4px;
+    background: #003366;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+nav {
+    margin-left: 24px;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 8px 4px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+.nav-menu li a:hover {
+    color: #0077cc;
+    transform: translateY(-2px);
+    border-bottom: 2px solid #0077cc;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a {
+    padding: 10px 16px;
+    display: block;
+    border: none;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+    .logo {
+        margin-left: 12px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 90px;
+        background: #d9f0ff;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+        z-index: 1001;
+    }
+    nav {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: #d9f0ff;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+    nav.open {
+        transform: translateY(0);
+    }
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    .nav-menu li a {
+        padding: 14px 16px;
+        border-bottom: 1px solid #b3e7ff;
+    }
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: #e6f8ff;
+    }
+    .health-header {
+        margin-bottom: 20px;
+    }
+    .card {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+            <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Our Insurance Areas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="life-insurance.html">Life Insurance</a></li>
+                        <li><a href="health-insurance.html" class="active">Health Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
+                        <li><a href="special-coverage.html">Special Coverage</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Products & Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                        <li><a href="policy-customization.html">Policy Customization</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html">Insights & Blog</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+<img class="health-header" src="images/health.jpg" alt="Health Insurance Coverage">
+
+<section class="section">
+<div class="container">
+<h1>HEALTH INSURANCE</h1>
+<p>Our health insurance solutions support individuals and families with access to quality healthcare, predictable costs, and professional claims assistance across trusted medical networks.</p>
+
+<h2>Plan Options</h2>
+<div class="grid-3">
+<div class="card">
+    <h3>Individual Plans</h3>
+    <p>Flexible coverage for individuals seeking essential and extended medical benefits.<br><strong>Click for more ...</strong></p>
+    <div class="popup">
+        Individual Plans include inpatient and outpatient care, specialist consultations, diagnostic services, and optional dental or vision add-ons with transparent cost structures.
+    </div>
+</div>
+<div class="card">
+    <h3>Family Plans</h3>
+    <p>Comprehensive household protection with dependent coverage and long-term value.<br><strong>Click for more ...</strong></p>
+    <div class="popup">
+        Family Plans provide medical cover for adults and children, preventive care, maternity options where eligible, and coordinated claims support for peace of mind.
+    </div>
+</div>
+</div>
+
+<h2>Claims & Provider Networks</h2>
+<p>We work closely with leading hospitals and clinics to streamline authorizations and claims processing, ensuring clear guidance, reduced delays, and dependable support during treatment.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+
+<script src="menu.js"></script>
+</body>
+</html>
+	

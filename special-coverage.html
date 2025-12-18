@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Special Coverage - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Card popup */
+  .card strong {
+    color: #007acc;
+    cursor: pointer;
+  }
+
+  /* Popup dropdown above card */
+  .popup {
+    display: none;
+    position: absolute;
+    bottom: 100%;       /* appear above card */
+    left: 0;
+    width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #003366;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 10;
+    margin-bottom: 10px; /* spacing above card */
+  }
+
+  .section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  /* Mobile adjustments */
+  @media(max-width:768px){
+    .grid-2 { grid-template-columns:1fr !important; }
+    .popup { position: relative; bottom:auto; width:100%; margin-top:10px; }
+  }
+
+  main { margin-top: 80px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html" class="active">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <img class="special-header" src="images/special.jpg" alt="Special Coverage" style="width:100%; display:block; margin-bottom:40px;">
+  <section class="section">
+    <h1>SPECIAL COVERAGE PLANS</h1>
+    <p>BlueShield’s Special Coverage Plans provide tailored insurance solutions for unique risks, high-value assets, and critical life events. We work closely with specialist carriers to deliver flexible, bespoke policies.</p>
+    <div class="grid-2" style="margin-top:12px">
+      <div class="card">
+        <h3>Critical Illness Cover</h3>
+        <p>Lump-sum benefits to assist with treatment costs or income replacement following qualifying diagnoses.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Covers major illnesses such as cancer, heart attack, stroke, organ transplant, and other critical conditions. Provides financial support for treatment, rehabilitation, and income replacement for policyholders.
+        </div>
+      </div>
+      <div class="card">
+        <h3>High-Value Asset Schedules</h3>
+        <p>Scheduled valuations and tailored indemnity terms for collections, luxury homes and specialist equipment.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Includes jewellery, fine art, collectibles, luxury vehicles, and specialist equipment. Coverage is based on verified valuations with customised policy terms and limits.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Event & Travel Protection</h3>
+        <p>Comprehensive coverage for weddings, corporate events, and high-value travel plans.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Offers cancellation, liability, and emergency medical coverage for planned events and travel. Ideal for individuals and organizations requiring tailored protection.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Special Liability Coverage</h3>
+        <p>Custom liability solutions for professionals, contractors, and niche industries.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Provides protection for legal liabilities, professional indemnity, and business-specific risks. Policies are designed with flexible terms and limits.
+        </div>
+      </div>
+    </div>
+    <p>These plans typically require bespoke underwriting and consultation. Our advisors guide clients through policy design, limits, exclusions, and claims support to ensure comprehensive coverage.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+
+<script>
+  // Mobile burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if(window.innerWidth <= 768){
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
+
+  // Card click-to-expand toggle
+  document.querySelectorAll('.card strong').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('.card');
+      const popup = card.querySelector('.popup');
+      if(popup.style.display === 'block'){
+        popup.style.display = 'none';
+      } else {
+        popup.style.display = 'block';
+      }
+    });
+  });
+
+  // Hide popup when clicking outside
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.card .popup').forEach(popup => {
+      if(!popup.closest('.card').contains(e.target)){
+        popup.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>

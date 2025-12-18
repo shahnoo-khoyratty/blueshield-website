@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mission - BlueShield Insurance Group</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== Click dropdown system (ready for reuse) ===== */
+.card strong {
+  color: #007acc;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: relative;
+  margin-top: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #003366;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* ===== Layout ===== */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  margin-top: 80px;
+}
+
+/* ===== Hero image ===== */
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  color: #003366;
+}
+
+footer {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #aad7ff;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION (FROM [A]) ================= -->
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO IMAGE ================= -->
+<section class="hero">
+  <img src="images/mission-header.jpg" alt="Our Mission">
+</section>
+
+<!-- ================= MISSION CONTENT (FROM [B]) ================= -->
+<section class="section">
+  <div class="container">
+
+    <h1>OUR MISSION</h1>
+
+    <p>
+      To deliver practical insurance advice, fair products, and exceptional service
+      that protect people’s finances and livelihoods.
+    </p>
+
+    <p>We commit to:</p>
+
+    <ul>
+      <li>Clear communication — plain language in every policy and proposal.</li>
+      <li>Client-first service — responsiveness and a single point of contact for each client.</li>
+      <li>Continuous improvement — reviewing and refining processes to reduce friction.</li>
+    </ul>
+
+    <p>
+      Our mission translates into measurable steps: standardized onboarding,
+      documented service levels, rapid claims triage, and regular policy reviews.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+/* Mobile burger toggle */
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('nav-menu');
+
+burger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+/* Mobile dropdown toggle */
+document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+  drop.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      drop.parentElement.classList.toggle('show');
+    }
+  });
+});
+
+/* Click-to-expand system (for future pages) */
+document.querySelectorAll('.card strong').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    const popup = trigger.closest('.card').querySelector('.popup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  });
+});
+</script>
+
+</body>
+</html>

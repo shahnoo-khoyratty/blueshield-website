@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQs - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Card popup */
+  .card strong {
+    color: #007acc;
+    cursor: pointer;
+  }
+  .popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #003366;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 10;
+  }
+
+  .section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section h1, .section h2, .section h3 {
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  .section p {
+    margin-bottom: 20px;
+  }
+
+  .grid-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 1 1 300px;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  }
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .grid-3 {
+      flex-direction: column;
+      align-items: center;
+    }
+    .popup {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  main {
+    margin-top: 80px;
+  }
+
+  .faq-header {
+    width: 100%;
+    display: block;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+            <li><a href="faqs.html" class="active">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <img class="faq-header" src="images/faq.jpg" alt="FAQs Header">
+  <section class="section">
+    <div class="container">
+      <h1>FREQUENTLY ASKED QUESTIONS</h1>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>How do I make a claim?</h3>
+          <p>
+            Contact our claims team via phone or email. We will advise on the required documentation and next steps, and assign a claims manager to your case.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Step-by-step guidance on submitting claims, expected timelines, and support contacts.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Can I change my coverage later?</h3>
+          <p>
+            Yes. Most policies can be adjusted at renewal or by endorsement during the policy term; contact your adviser to request changes and to receive cost implications.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Learn how policy adjustments affect coverage, costs, and eligibility.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Do you provide corporate group plans?</h3>
+          <p>
+            Yes. We design and administer group health and life programs for organisations of various sizes and needs.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Details on group plan options, customization, and enrollment processes.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+
+<script>
+  // Mobile burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
+
+  // Card click-to-expand toggle
+  document.querySelectorAll('.card strong').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('.card');
+      const popup = card.querySelector('.popup');
+      if (popup.style.display === 'block') {
+        popup.style.display = 'none';
+      } else {
+        popup.style.display = 'block';
+      }
+    });
+  });
+
+  // Hide popup when clicking outside
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.card .popup').forEach(popup => {
+      if (!popup.closest('.card').contains(e.target)) {
+        popup.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>

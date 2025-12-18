@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Life Insurance - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== Layout ===== */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  position: relative;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.card strong {
+  color: #007acc;
+  cursor: pointer;
+}
+
+/* ===== Click Dropdown ===== */
+.popup {
+  display: none;
+  margin-top: 14px;
+  background: #003366;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* ===== Images ===== */
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Space for fixed header */
+main {
+  margin-top: 80px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION (FROM [A]) ================= -->
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO IMAGE ================= -->
+<section class="hero">
+  <img src="images/life-insurance.jpg" alt="Life Insurance Coverage">
+</section>
+
+<!-- ================= CONTENT (FROM [B]) ================= -->
+<section class="section">
+  <div class="container">
+
+    <h1>LIFE INSURANCE</h1>
+
+    <p>
+      BlueShield offers a comprehensive range of life insurance solutions designed
+      to protect your family's financial future. We provide tailored plans to meet
+      your unique needs and long-term goals.
+    </p>
+
+    <h2>Our Plans</h2>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <h3>Term Life Insurance</h3>
+        <p>
+          Affordable coverage for a set term to protect income and provide financial security.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Term Life offers high-limit protection for a specified term.
+          Ideal for income replacement, mortgage coverage, and financial security
+          for dependents. Simple, low premiums, no savings component.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Whole Life Insurance</h3>
+        <p>
+          Lifelong coverage with a savings component, perfect for long-term planning.<br>
+          <strong>Click here, to expand, again to contract ...</strong>
+        </p>
+        <div class="popup">
+          Whole Life provides permanent protection with guaranteed premiums and
+          cash value growth. Useful for estate planning, wealth transfer,
+          and long-term financial stability.
+        </div>
+      </div>
+
+    </div>
+
+    <h2>Additional Features</h2>
+    <ul>
+      <li>Optional riders for enhanced coverage such as critical illness, disability, or accidental death.</li>
+      <li>Flexible premium structures to fit different budgets.</li>
+      <li>Policy reviews to ensure coverage aligns with life changes.</li>
+      <li>Dedicated customer support for claims and policy management.</li>
+    </ul>
+
+    <h2>Why Choose BlueShield Life Insurance?</h2>
+    <p>
+      We combine financial expertise, personalized service, and reliable claims support
+      to provide peace of mind. With BlueShield, your family’s future is protected
+      with clarity and confidence.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved |
+    <a href="contact.html" style="color:#ffffff;">Contact</a>
+  </p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+/* Mobile menu */
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('nav-menu');
+
+burger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+/* Mobile dropdowns */
+document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      link.parentElement.classList.toggle('show');
+    }
+  });
+});
+
+/* Click-to-expand cards */
+document.querySelectorAll('.card strong').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    const popup = trigger.closest('.card').querySelector('.popup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  });
+});
+</script>
+
+</body>
+</html>

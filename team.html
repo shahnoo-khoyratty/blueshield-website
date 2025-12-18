@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Our Team — BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Standardized Team Page ===== */
+/* Fixed header + pale blue background for navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff; /* Pale blue background */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Body spacing for fixed header */
+body {
+    padding-top: 80px; /* match nav height */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header image */
+.team-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    object-fit: cover;
+}
+
+/* Section spacing */
+.section {
+    padding: 60px 20px;
+}
+.section h1, .section h2, .section h3 {
+    margin-bottom: 20px;
+    color: #003366;
+}
+.section p {
+    margin-bottom: 20px;
+}
+
+/* Grid layout for team cards */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Team cards */
+.card {
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Team photo */
+.team-photo {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Tooltip overlay - only shows on click */
+.card .tooltip {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background: #003366;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* Instructions */
+.instructions {
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.logo img {
+    height: 50px;
+    pointer-events: none;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #003366; /* Dark text on pale blue */
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+.nav-menu li a:hover {
+    color: #007acc;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.nav-menu li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a {
+    color: #003366;
+}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #003366; /* burger bars dark for visibility */
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #d9f0ff; /* Pale blue background */
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+    .nav-menu.show {
+        display: flex;
+    }
+    .burger {
+        display: flex;
+    }
+    .dropdown-menu {
+        position: static;
+        background: #e6f8ff;
+        box-shadow: none;
+    }
+    .nav-menu li.dropdown.show > .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+    }
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+    }
+    .card .tooltip {
+        position: static;
+        width: auto;
+        transform: none;
+        margin-bottom: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+      <div class="logo">
+          <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+      </div>
+      <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <nav>
+          <ul class="nav-menu" id="nav-menu">
+              <li><a href="home.html">Home</a></li>
+              <li class="dropdown">
+                  <a href="#">About Us</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="vision.html">Vision</a></li>
+                      <li><a href="mission.html">Mission</a></li>
+                      <li><a href="team.html" class="active">Meet Our Team</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown">
+                  <a href="#">Our Insurance Areas</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="life-insurance.html">Life Insurance</a></li>
+                      <li><a href="health-insurance.html">Health Insurance</a></li>
+                      <li><a href="business-insurance.html">Business Insurance</a></li>
+                      <li><a href="special-coverage.html">Special Coverage</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown">
+                  <a href="#">Products & Solutions</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                      <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                      <li><a href="risk-management.html">Risk Management</a></li>
+                      <li><a href="policy-customization.html">Policy Customization</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown">
+                  <a href="#">Resources</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+                      <li><a href="faqs.html">FAQs</a></li>
+                      <li><a href="glossary.html">Glossary</a></li>
+                  </ul>
+              </li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+      </nav>
+  </div>
+</header>
+
+<main>
+    <img src="images/team-work.jpg" class="team-header" alt="Our Team Header">
+    <section class="section">
+        <div class="container">
+            <h1>MEET OUR TEAM</h1>
+            <p class="instructions">Click on a Person to see further details, and again to dissappear</p>
+            <p>BlueShield’s leadership team combines deep insurance expertise with strong governance, client advocacy and long-term partnership values.</p>
+
+            <div class="grid-3" style="margin-top:20px">
+                <div class="card">
+                    <img src="images/team-john.jpg" class="team-photo" alt="John Mitchell">
+                    <h3>John Mitchell</h3>
+                    <p>Founder & CEO</p>
+                    <div class="tooltip">22 years in international insurance and risk management. Leads strategy, governance and senior client relationships.</div>
+                </div>
+                <div class="card">
+                    <img src="images/team-jane.jpg" class="team-photo" alt="Jane Armand">
+                    <h3>Jane Armand</h3>
+                    <p>Head of Client Services</p>
+                    <div class="tooltip">Specialist in life & health solutions, claims advocacy and adviser quality assurance.</div>
+                </div>
+                <div class="card">
+                    <img src="images/team-alex.jpg" class="team-photo" alt="Alex Morel">
+                    <h3>Alex Morel</h3>
+                    <p>Senior Risk Adviser</p>
+                    <div class="tooltip">Oversees risk audits, loss prevention strategies and corporate risk assessments.</div>
+                </div>
+                <div class="card">
+                    <img src="images/team-sophia.jpg" class="team-photo" alt="Sophia Laurent">
+                    <h3>Sophia Laurent</h3>
+                    <p>Policy Design Manager</p>
+                    <div class="tooltip">Manages policy wording, endorsements and regulatory compliance.</div>
+                </div>
+            </div>
+
+            <div class="grid-3 center-bottom" style="margin-top:20px">
+                <div class="card">
+                    <img src="images/team-daniel.jpg" class="team-photo" alt="Daniel Ho">
+                    <h3>Daniel Ho</h3>
+                    <p>Corporate Insurance Lead</p>
+                    <div class="tooltip">Advises organisations on property, liability and employee benefit programs.</div>
+                </div>
+                <div class="card">
+                    <img src="images/team-emily.jpg" class="team-photo" alt="Emily Carter">
+                    <h3>Emily Carter</h3>
+                    <p>Client Relationship Manager</p>
+                    <div class="tooltip">Coordinates onboarding, renewals and ongoing client service delivery.</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
+    </div>
+</footer>
+
+<script>
+// Mobile burger toggle
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('nav-menu');
+burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+});
+document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            link.parentElement.classList.toggle('show');
+        }
+    });
+});
+
+// Card click-to-toggle tooltip
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        const tooltip = card.querySelector('.tooltip');
+        if (tooltip.style.display === 'block') {
+            tooltip.style.display = 'none';
+        } else {
+            tooltip.style.display = 'block';
+        }
+    });
+});
+</script>
+
+</body>
+</html>

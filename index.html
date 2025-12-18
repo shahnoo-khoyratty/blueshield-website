@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #d9f0ff;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+.logo img {
+  height: 50px;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-menu li {
+  position: relative;
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+}
+.nav-menu li a:hover {
+  color: #007acc;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 180px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.dropdown-menu li a {
+  padding: 8px 12px;
+  color: #003366;
+}
+.nav-menu li.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: #003366;
+}
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url('images/home.jpg') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 1000px;
+  text-align: center;
+  color: #ffffff;
+}
+.hero-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.hero-values {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+.hero-values li {
+  margin-bottom: 10px;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007acc;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.btn-primary:hover {
+  background-color: #005fa3;
+}
+.trust-badge {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  display: block;
+  color: #f0f0f0;
+}
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #003366;
+}
+.grid-3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.popup {
+  display: none;
+  position: absolute;
+  top: -160px;
+  left: 0;
+  width: 280px;
+  background: #003366;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  z-index: 10;
+}
+.card:hover .popup {
+  display: block;
+}
+footer {
+  background: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: #d9f0ff;
+    width: 100%;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    z-index: 1000;
+  }
+  .nav-menu.show {
+    display: flex;
+  }
+  .burger {
+    display: flex;
+  }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #e6f8ff;
+  }
+  .nav-menu li.dropdown.show > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  .hero-values li {
+    font-size: 0.9rem;
+  }
+  .hero-overlay {
+    padding: 15px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h1>Protecting Your Future With Confidence</h1>
+      <ul class="hero-values">
+        <li>Est. 1998</li>
+        <li>Robust, transparent insurance, risk management solutions.</li>
+        <li>Crafted for individuals, families and businesses</li>
+        <li>Tailored policies that match real needs</li>
+        <li>Fast, fair and human claims handling</li>
+        <li>Regulated, licensed and professionally governed</li>
+      </ul>
+      <a class="btn-primary" href="contact.html">Get a Quote</a>
+      <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-3">
+      <div class="card">
+        <img src="images/service-life.jpg" alt="Life Insurance">
+        <h3>Life Insurance</h3>
+        <p>Flexible life solutions to preserve capital, replace income and provide for dependents.<br><strong>Click for more ...</strong></p>
+        <div class="popup">Term Life and Whole Life options designed for income replacement, family protection and long-term estate planning.</div>
+      </div>
+      <div class="card">
+        <img src="images/service-health.jpg" alt="Health Insurance">
+        <h3>Health Insurance</h3>
+        <p>Comprehensive inpatient and outpatient coverage, provider networks, and tailored plans.<br><strong>Click for more ...</strong></p>
+        <div class="popup">Inpatient, outpatient, emergency, specialist care and assisted claims handling.</div>
+      </div>
+      <div class="card">
+        <img src="images/service-business.jpg" alt="Business Insurance">
+        <h3>Business Insurance</h3>
+        <p>Property, liability, business interruption and employee benefit solutions.<br><strong>Click for more ...</strong></p>
+        <div class="popup">Tailored protection for SMEs and large organisations, including cyber and liability cover.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Insights & Updates</h2>
+    <div class="grid-3">
+      <div class="card">
+        <a href="blog.html#term-vs-whole-life">
+          <img src="images/blog-placeholder1.jpg" alt="Understanding Term vs Whole Life">
+          <h3>Understanding Term vs Whole Life</h3>
+          <p>An in-depth guide to choosing the right lifetime protection strategy.</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="blog.html#health-insurance-tips">
+          <img src="images/blog-placeholder.jpg" alt="Health Insurance Tips">
+          <h3>Health Insurance Tips for 2025</h3>
+          <p>How to evaluate networks, outpatient benefits and co-payment structures.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('nav-menu');
+burger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+  drop.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      drop.parentElement.classList.toggle('show');
+    }
+  });
+});
+</script>
+</body>
+</html>

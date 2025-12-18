@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Additional CSS for merged sections ===== */
+.center-grid {
+    justify-items: center;
+    text-align: center;
+}
+.intro-section .intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+.intro-section .intro-text {
+    flex: 1 1 400px;
+}
+.intro-section .intro-image {
+    flex: 1 1 400px;
+}
+.section h1, .section h2, .section h3 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+.grid-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 1 1 300px;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .intro-section .intro-container {
+        flex-direction: column;
+    }
+    .grid-3 {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h1>Protecting Your Future With Confidence</h1>
+      <ul class="hero-values">
+        <li>Est. 1998. Transparent, flexible protection for real-life needs.</li>
+      </ul>
+      <a class="btn-primary" href="contact.html">Get a Quote</a>
+      <p class="trust-badge">Licensed by the Financial Services Commission, Mauritius</p>
+    </div>
+  </section>
+
+  <!-- INTRO SECTION WITH HANDSHAKE GIF -->
+  <section class="section intro-section">
+    <div class="intro-container">
+      <div class="intro-text">
+        <h2>Welcome to BlueShield</h2>
+        <p>We provide personalized insurance solutions to protect your family, health, and business. Our expertise ensures confidence and peace of mind in all life’s uncertainties.</p>
+      </div>
+      <div class="intro-image">
+        <img src="images/intro-handshake.gif" alt="Handshake GIF">
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR INSURANCE AREAS -->
+  <section class="section">
+    <h2>Our Insurance Areas</h2>
+    <div class="grid-3">
+      <div class="card">
+        <img src="images/service-life.jpg" alt="Life Insurance">
+        <h3>Life Insurance</h3>
+        <p>Flexible protection and long-term financial stability for your family.</p>
+        <a href="life-insurance.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/service-health.jpg" alt="Health Insurance">
+        <h3>Health Insurance</h3>
+        <p>Comprehensive medical cover with access to trusted healthcare providers.</p>
+        <a href="health-insurance.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/service-business.jpg" alt="Business Insurance">
+        <h3>Business Insurance</h3>
+        <p>Protection for assets, employees and operations against business risks.</p>
+        <a href="business-insurance.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/service-special.jpg" alt="Special Coverage">
+        <h3>Special Coverage</h3>
+        <p>Tailored insurance for high-value assets and specialized risks.</p>
+        <a href="special-coverage.html" class="card-link">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS & SOLUTIONS -->
+  <section class="section">
+    <h2>Products & Solutions</h2>
+    <div class="grid-3">
+      <div class="card">
+        <img src="images/product-personal.jpg" alt="Personal Insurance">
+        <h3>Personal Insurance</h3>
+        <p>Individual insurance solutions built around your personal needs.</p>
+        <a href="personal-insurance.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/product-corporate.jpg" alt="Corporate Insurance">
+        <h3>Corporate Insurance</h3>
+        <p>Risk protection strategies designed for corporate environments.</p>
+        <a href="corporate-insurance.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/product-risk.jpg" alt="Risk Management">
+        <h3>Risk Management</h3>
+        <p>Identify, assess and mitigate risks through structured frameworks.</p>
+        <a href="risk-management.html" class="card-link">Learn more</a>
+      </div>
+      <div class="card">
+        <img src="images/product-custom.jpg" alt="Policy Customization">
+        <h3>Policy Customization</h3>
+        <p>Custom-built insurance policies adapted to unique requirements.</p>
+        <a href="policy-customization.html" class="card-link">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS & BLOG SECTION FROM [B] -->
+  <section class="section">
+    <div class="container">
+      <h1>INSIGHTS & BLOG</h1>
+      <p>Stay informed with our expert insights and practical guides on insurance, risk management, and financial planning. Our blog helps you make smarter choices and understand complex policies with ease.</p>
+      <p>Analysis, guides and practical advice from our team of advisers. We publish articles that demystify insurance decisions and help clients make informed choices.</p>
+      <div class="grid-3 center-grid" style="margin-top:24px;">
+        <div class="card">
+          <a href="https://www.gocompare.com/life-insurance/" target="_blank">
+            <img src="images/compare1.jpg" alt="How to compare life insurance quotes">
+            <h3>How to compare life insurance quotes</h3>
+            <p>Practical checklist to ensure you compare like-for-like benefits and exclusions when evaluating offers.</p>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://www.healthcare.gov/get-answers/" target="_blank">
+            <img src="images/health.jpg" alt="Top health-plan questions answered">
+            <h3>Top health-plan questions answered</h3>
+            <p>Key considerations for networks, co-payments and specialist access when choosing a health plan.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+
+<script>
+  // Mobile burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
+</script>
+</body>
+</html>

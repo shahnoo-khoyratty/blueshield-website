@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Insurance - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Card popup */
+  .card strong {
+    color: #007acc;
+    cursor: pointer;
+  }
+  .popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #003366;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 10;
+  }
+  .section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .grid-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 1 1 300px;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  }
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .grid-3 {
+      flex-direction: column;
+      align-items: center;
+    }
+    .popup {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  /* Optional: ensure header space */
+  main {
+    margin-top: 80px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <!-- HERO IMAGE -->
+  <section>
+    <img src="images/business-header.jpg" alt="Business Insurance" style="width:100%; height:auto; display:block;">
+  </section>
+  <!-- BUSINESS INSURANCE CONTENT -->
+  <section class="section">
+    <div class="container">
+      <h1>BUSINESS INSURANCE</h1>
+      <p>
+        Protect your enterprise with sector-aware insurance solutions.
+        We assess operational risks and design programs covering property,
+        liability, business interruption, cyber threats, and employee benefit schemes.
+      </p>
+      <h2 style="margin-top:24px;">Core Offerings</h2>
+      <div class="grid-3" style="margin-top:20px;">
+        <div class="card">
+          <h3>SME Packages</h3>
+          <p>
+            Core protections for smaller firms with competitive premiums and scalable limits.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Tailored SME coverage including property, liability and employee benefits, designed to scale with your business growth.
+          </div>
+        </div>
+        <div class="card">
+          <h3>Enterprise Programs</h3>
+          <p>
+            Custom cover and program management for complex operations.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Multi-entity insurance programs, global compliance support, risk engineering and dedicated account management.
+          </div>
+        </div>
+        <div class="card">
+          <h3>Additional Insights</h3>
+          <p>
+            Learn about risk assessment, compliance, and industry-specific challenges.<br>
+            <strong>Click here, to expand, again to contract ...</strong>
+          </p>
+          <div class="popup">
+            Detailed guides, case studies, and practical advice for managing business risk effectively.
+          </div>
+        </div>
+      </div>
+      <h2 style="margin-top:32px;">Risk Engineering & Consulting</h2>
+      <p>
+        We partner with loss control experts to reduce frequency and severity of claims.
+        Our consulting services help businesses implement risk mitigation strategies,
+        ensuring long-term financial stability and compliance.
+      </p>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html" style="color:#ffffff;">Contact</a></p>
+</footer>
+<script>
+  // Mobile burger toggle
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        drop.parentElement.classList.toggle('show');
+      }
+    });
+  });
+
+  // Card click-to-expand toggle (fixed)
+  document.querySelectorAll('.card strong').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('.card');
+      const popup = card.querySelector('.popup');
+      if (popup.style.display === 'block') {
+        popup.style.display = 'none';
+      } else {
+        popup.style.display = 'block';
+      }
+    });
+  });
+
+  // Hide popup when clicking outside
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.card .popup').forEach(popup => {
+      if (!popup.closest('.card').contains(e.target)) {
+        popup.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>

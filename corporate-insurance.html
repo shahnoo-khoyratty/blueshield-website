@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corporate Insurance - BlueShield</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.card strong { color:#007acc; cursor:pointer; }
+
+.popup {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  width:280px;
+  background:#003366;
+  color:#fff;
+  padding:16px;
+  border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+  z-index:10;
+}
+
+.section {
+  padding:80px 20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.grid-3 {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+.card {
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  flex:1 1 300px;
+  max-width:300px;
+  padding:20px;
+  position:relative;
+  cursor:pointer;
+  transition:transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+}
+
+@media (max-width:768px){
+  .grid-3 { flex-direction:column; align-items:center; }
+  .popup { position:relative; width:100%; margin-top:10px; }
+}
+
+main { margin-top:80px; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html" class="active">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <img src="images/corporate.jpg" alt="Corporate Insurance Header" style="width:100%;display:block;">
+</section>
+
+<section class="section">
+  <h1>CORPORATE INSURANCE</h1>
+
+  <p>
+    Corporate Insurance provides specialized protection to safeguard businesses
+    from complex risks.
+  </p>
+
+  <div class="grid-3" style="margin-top:24px;">
+
+    <div class="card">
+      <h3>Directors & Officers</h3>
+      <p>
+        Protection for senior management.<br>
+        <strong>Click here, to expand, again to contract ...</strong>
+      </p>
+      <div class="popup">
+        Covers executives against claims for alleged wrongful acts in company management.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Professional Indemnity</h3>
+      <p>
+        Coverage for professional liability.<br>
+        <strong>Click here, to expand, again to contract ...</strong>
+      </p>
+      <div class="popup">
+        Protects against claims of negligence, errors or omissions in professional services.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Trade Credit</h3>
+      <p>
+        Protection for receivables.<br>
+        <strong>Click here, to expand, again to contract ...</strong>
+      </p>
+      <div class="popup">
+        Covers non-payment risk and ensures cash-flow stability.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved |
+    <a href="contact.html" style="color:#ffffff;">Contact</a>
+  </p>
+</footer>
+
+<script src="menu.js"></script>
+
+<script>
+document.querySelectorAll('.card strong').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const popup = btn.closest('.card').querySelector('.popup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.popup').forEach(p=>p.style.display='none');
+});
+</script>
+
+</body>
+</html>

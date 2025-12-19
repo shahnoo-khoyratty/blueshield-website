@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vision — BlueShield Insurance Group</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Vision Page Overrides ===== */
+
+/* Fixed header + pale blue background */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d9f0ff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Body spacing for fixed header */
+body {
+    padding-top: 100px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f8ff;
+}
+
+/* Navigation dropdown */
+nav ul.nav-menu li:hover > ul.dropdown-menu,
+nav ul.nav-menu li ul.dropdown-menu:hover {
+    display: block !important;
+}
+nav ul.nav-menu li ul.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 95%;
+    left: 0;
+    background: #ffffff;
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header image */
+.vision-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Section spacing */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Headings */
+.section h1 {
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+/* Paragraphs and list */
+.section p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.vision-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.vision-list li {
+    margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a {
+    color: #aad7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* ===== Mobile Navigation (burger, logo handling) ===== */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.logo img {
+    height: 50px;
+}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #003366;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-menu li {
+    position: relative;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+.nav-menu li a:hover {
+    color: #007acc;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.dropdown-menu li a {
+    padding: 8px 12px;
+    color: #003366;
+}
+.nav-menu li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* ===== Mobile CSS ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #d9f0ff;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+    .nav-menu.show {
+        display: flex;
+    }
+    .burger {
+        display: flex;
+    }
+    .dropdown-menu {
+        position: static;
+    }
+    .nav-menu li.dropdown.show > .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+        </div>
+        <!-- Burger -->
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="vision.html" class="active">Vision</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Our Insurance Areas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="life-insurance.html">Life Insurance</a></li>
+                        <li><a href="health-insurance.html">Health Insurance</a></li>
+                        <li><a href="business-insurance.html">Business Insurance</a></li>
+                        <li><a href="special-coverage.html">Special Coverage</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Products & Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-insurance.html">Personal Insurance</a></li>
+                        <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                        <li><a href="policy-customization.html">Policy Customization</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <img class="vision-header" src="images/vision-header.jpg" alt="Our Vision Header">
+    <section class="section">
+        <div class="container">
+            <h1>OUR VISION</h1>
+            <ul class="vision-list">
+                <li>To be the most trusted insurance partner for individuals and businesses in our markets.</li>
+                <li>Known for clear advice, consistent execution and measurable client outcomes.</li>
+                <li>We aim to demystify insurance and make robust protection accessible and understandable.</li>
+                <li>We believe trust is earned by reliability: clear terms, prompt claims handling, and consistent adviser engagement.</li>
+                <li>Over the next five years, our vision is to scale our advisory model while maintaining personal service standards.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 BlueShield Insurance Group. All rights reserved. | <a href="contact.html">Contact</a></p>
+    </div>
+</footer>
+
+<script>
+    // Burger toggle
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.nav-menu .dropdown > a').forEach(drop => {
+        drop.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                drop.parentElement.classList.toggle('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+	

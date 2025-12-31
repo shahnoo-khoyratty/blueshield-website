@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Click text */
+.card strong { color: #007acc; cursor: pointer; }
+/* Popup */
+.popup { display: none; margin-top: 12px; width: 100%; max-height: 300px; overflow-y: auto; background: #003366; color: #ffffff; padding: 16px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+/* Layout */
+.section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.grid-3 { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); flex: 1 1 300px; max-width: 300px; padding: 20px; position: relative; }
+/* Mobile */
+@media (max-width: 768px) { .grid-3 { flex-direction: column; align-items: center; } }
+/* Header spacing */
+main { margin-top: 80px; }
+/* Header image */
+.glossary-header { width: 100%; display: block; border-radius: 12px; object-fit: cover; }
+</style>
+</head>
+<body>
+<header>
+<div class="nav-container">
+  <div class="logo">
+    <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+  </div>
+  <div class="burger" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="team.html">Meet Our Team</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Our Insurance Areas</a>
+        <ul class="dropdown-menu">
+          <li><a href="life-insurance.html">Life Insurance</a></li>
+          <li><a href="health-insurance.html">Health Insurance</a></li>
+          <li><a href="business-insurance.html">Business Insurance</a></li>
+          <li><a href="special-coverage.html">Special Coverage</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Products & Solutions</a>
+        <ul class="dropdown-menu">
+          <li><a href="personal-insurance.html">Personal Insurance</a></li>
+          <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+          <li><a href="risk-management.html">Risk Management</a></li>
+          <li><a href="policy-customization.html">Policy Customization</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Resources</a>
+        <ul class="dropdown-menu">
+          <li><a href="blog.html#term-vs-whole-life">Insights & Blog</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="glossary.html" class="active">Glossary</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</header>
+
+<main>
+<img src="images/glossary.jpg" alt="Glossary Header" class="glossary-header">
+
+<section class="section">
+  <h1>INSURANCE GLOSSARY</h1>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Premium</h3>
+      <p>The amount paid for an insurance policy, usually on a monthly or annual basis.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Detailed info: Premium is calculated based on risk factors, policy type, and coverage level.</div>
+    </div>
+    <div class="card">
+      <h3>Excess / Deductible</h3>
+      <p>The portion of a claim that the policyholder must pay before the insurer covers the rest.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Detailed info: Deductible can vary by claim type, policy, and insurer; higher deductibles usually lower premium.</div>
+    </div>
+    <div class="card">
+      <h3>Rider</h3>
+      <p>An optional policy addition that provides extra benefits or alters the policy terms.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Example: Critical illness rider, accidental death rider, waiver of premium rider.</div>
+    </div>
+    <div class="card">
+      <h3>Endorsement</h3>
+      <p>An amendment to an insurance policy which changes its terms, coverage, or scope.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Example: Adding a new vehicle to auto insurance or increasing property coverage.</div>
+    </div>
+    <div class="card">
+      <h3>Underwriting</h3>
+      <p>The process an insurer uses to assess risk and determine the premium and coverage.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Detailed info: Involves evaluating applicant risk, financials, health, and other factors.</div>
+    </div>
+    <div class="card">
+      <h3>Claim</h3>
+      <p>A formal request by a policyholder to the insurer for payment or coverage under a policy.<br><strong>Click to expand / collapse</strong></p>
+      <div class="popup">Process: Submit documentation, assessment by insurer, approval and payout.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html">Contact</a></p>
+</footer>
+
+<!-- ? Same JS as Home -->
+<script src="menu.js"></script>
+
+<!-- Card toggle -->
+<script>
+document.querySelectorAll('.card strong').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const popup = btn.closest('.card').querySelector('.popup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  });
+});
+document.addEventListener('click', e => {
+  document.querySelectorAll('.popup').forEach(popup => {
+    if (!popup.closest('.card').contains(e.target)) {
+      popup.style.display = 'none';
+    }
+  });
+});
+</script>
+</body>
+</html>

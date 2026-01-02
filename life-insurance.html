@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Insurance - BlueShield</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { margin:0; font-family:Arial,sans-serif; }
+
+/* ===== Header / Navigation ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #d9f0ff;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+.nav-container {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin:0 auto;
+  padding:10px 20px;
+}
+.logo img { height:50px; }
+.nav-menu {
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+.nav-menu li { position:relative; }
+.nav-menu li a {
+  text-decoration:none;
+  color:#003366;
+  font-weight:bold;
+  padding:8px 12px;
+  display:block;
+}
+.nav-menu li a:hover, .nav-menu li a.active { color:#007acc; }
+.dropdown-menu {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  min-width:180px;
+  border-radius:5px;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+.dropdown-menu li a { padding:8px 12px; color:#003366; }
+.nav-menu li.dropdown:hover>.dropdown-menu { display:block; }
+
+/* Burger */
+.burger {
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  cursor:pointer;
+}
+.burger span { width:25px; height:3px; background:#003366; }
+
+/* Sections / Cards */
+.section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+.grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.card {
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  padding:20px;
+}
+.card strong { color:#007acc; cursor:pointer; }
+.popup {
+  display:none;
+  margin-top:14px;
+  background:#003366;
+  color:#fff;
+  padding:16px;
+  border-radius:8px;
+}
+
+/* Hero Image */
+.hero img {
+  width:100%;
+  display:block;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* Intro text */
+.intro-text { margin-bottom:20px; color:#003366; font-size:1rem; line-height:1.5; }
+
+/* Footer */
+footer { background:#003366; color:#fff; padding:40px 20px; text-align:center; }
+footer a { color:#aad7ff; text-decoration:none; }
+
+/* Mobile adjustments */
+@media (max-width:768px) {
+  .nav-menu {
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    background:#d9f0ff;
+    width:100%;
+    position:absolute;
+    top:70px;
+    left:0;
+  }
+  .nav-menu.show { display:flex; }
+  .burger { display:flex; }
+  .dropdown-menu { position:static; }
+  .nav-menu li.dropdown.show>.dropdown-menu {
+    display:flex;
+    flex-direction:column;
+  }
+  .grid-2 { grid-template-columns:1fr; }
+}
+
+main { margin-top:80px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logo-blueshield.png" alt="BlueShield Logo">
+    </div>
+    <div class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Our Insurance Areas</a>
+          <ul class="dropdown-menu">
+            <li><a href="life-insurance.html" class="active">Life Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="business-insurance.html">Business Insurance</a></li>
+            <li><a href="special-coverage.html">Special Coverage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Products & Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="personal-insurance.html">Personal Insurance</a></li>
+            <li><a href="corporate-insurance.html">Corporate Insurance</a></li>
+            <li><a href="risk-management.html">Risk Management</a></li>
+            <li><a href="policy-customization.html">Policy Customization</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="blog.html">Insights & Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="images/life-insurance.jpg" alt="Life Insurance Coverage">
+  </section>
+
+  <section class="section">
+    <h1>LIFE INSURANCE</h1>
+
+    <!-- Intro text immediately after heading, before cards -->
+    <div class="intro-text">
+      <p>Welcome to our Life Insurance options. Whether you are looking for coverage for a specific term or lifelong protection, we have plans designed to meet your needs. Explore the options below to see which fits your lifestyle best.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Term Life Insurance</h3>
+        <p>Affordable coverage for a set term.<br>
+        <strong>Click here, to expand, again to contract ...</strong></p>
+        <div class="popup">
+          High-limit protection for a fixed period, ideal for income replacement.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Whole Life Insurance</h3>
+        <p>Lifelong coverage with savings.<br>
+        <strong>Click here, to expand, again to contract ...</strong></p>
+        <div class="popup">
+          Permanent protection with guaranteed premiums and cash value growth.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 BlueShield Insurance Group. All rights reserved | <a href="contact.html">Contact</a></p>
+</footer>
+
+<!-- ✅ SAME JS AS HOME -->
+<script src="menu.js"></script>
+
+<!-- Card toggle -->
+<script>
+document.querySelectorAll('.card strong').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+    const popup = trigger.closest('.card').querySelector('.popup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  });
+});
+document.addEventListener('click', e => {
+  document.querySelectorAll('.popup').forEach(popup => {
+    if (!popup.closest('.card').contains(e.target)) {
+      popup.style.display = 'none';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
